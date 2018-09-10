@@ -1,0 +1,12 @@
+---
+- name: infosec
+  title: Information Security
+  group: 2
+  description: >
+    Information Security information. Used as part of authorisation.
+  type: group
+  fields:
+    - name: unit_code
+      type: keyword
+      description: >
+        Organisational unic code

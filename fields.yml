@@ -275,6 +275,44 @@
             `endpoint`, `firewall`, `ids`, `ips`, `proxy`.
           example: firewall
     
+    - name: email
+      title: Email
+      group: 2
+      description: >
+        Email metadata
+      type: group
+      fields:
+        - name: sender
+          type: keyword
+          description: >
+            Address of sender.
+    
+        - name: recipient
+          type: keyword
+          description: >
+            Address of recipient.
+    
+        - name: subject
+          type: text
+          description: >
+            Subject of email.
+    
+          multi_fields:
+            - name: raw
+              type: keyword
+              description: >
+                non-analyzed subject.
+    
+        - name: message_id
+          type: keyword
+          description: >
+            ID of message.
+    
+        - name: related_message_id
+          type: keyword
+          description: >
+            ID of related message.
+    
     - name: error
       title: Error
       group: 2
@@ -673,6 +711,18 @@
           description: >
             Http version.
           example: 1.1
+    
+    - name: infosec
+      title: Information Security
+      group: 2
+      description: >
+        Information Security information. Used as part of authorisation.
+      type: group
+      fields:
+        - name: unit_code
+          type: keyword
+          description: >
+            Organisational unic code
     
     - name: kubernetes
       title: Kubernetes
@@ -1237,3 +1287,95 @@
           type: long
           description: >
             Minor version of the operating system.
+    
+    - name: vulnerability
+      title: Vulnerability
+      group: 2
+      description: >
+        To ingest vulnerability scan results
+    
+      type: group
+      fields:
+        - name: cves
+          type: keyword
+          description:
+    
+        - name: cvss
+          type: float
+          description:
+    
+        - name: description
+          type: keyword
+          description:
+    
+        - name: test_id
+          type: keyword
+          description:
+    
+        - name: test_name
+          type: keyword
+          description:
+    
+        - name: test_output
+          type: keyword
+          description:
+    
+        - name: severity
+          type: keyword
+          description:
+    
+        - name: scan_policy
+          type: keyword
+          description:
+    
+        - name: other_references
+          type: keyword
+          description:
+    
+        - name: solution
+          type: keyword
+          description:
+    
+        - name: affected_software
+          type: keyword
+          description:
+    
+        - name: bids
+          type: keyword
+          description:
+    
+        - name: certs
+          type: keyword
+          description:
+    
+        - name: impact
+          type: keyword
+          description:
+    
+        - name: result_id
+          type: keyword
+          description:
+    
+        - name: solution_type
+          type: keyword
+          description:
+    
+        - name: specific_result
+          type: keyword
+          description:
+    
+        - name: task_id
+          type: keyword
+          description:
+    
+        - name: task_name
+          type: keyword
+          description:
+    
+        - name: detection_method
+          type: keyword
+          description:
+    
+        - name: insight
+          type: keyword
+          description:

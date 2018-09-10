@@ -29,12 +29,14 @@ ECS defines these fields.
  * [Container fields](#container)
  * [Destination fields](#destination)
  * [Device fields](#device)
+ * [Email fields](#email)
  * [Error fields](#error)
  * [Event fields](#event)
  * [File fields](#file)
  * [Geo fields](#geo)
  * [Host fields](#host)
  * [HTTP fields](#http)
+ * [Information Security fields](#infosec)
  * [Kubernetes fields](#kubernetes)
  * [Log fields](#log)
  * [Network fields](#network)
@@ -47,6 +49,7 @@ ECS defines these fields.
  * [URL fields](#url)
  * [User fields](#user)
  * [User agent fields](#user_agent)
+ * [Vulnerability fields](#vulnerability)
 
 ## <a name="base"></a> Base fields
 
@@ -141,6 +144,21 @@ Device fields are used to provide additional information about the device that i
 | <a name="device.serial_number"></a>device.serial_number  | Device serial number.  | keyword  |   |   |
 | <a name="device.timezone.offset.sec"></a>device.timezone.offset.sec  | Timezone offset of the host in seconds.<br/>Number of seconds relative to UTC. If the offset is -01:30 the value will be -5400.  | long  |   | `-5400`  |
 | <a name="device.type"></a>device.type  | The type of the device the data is coming from.<br/>There is no predefined list of device types. Some examples are `endpoint`, `firewall`, `ids`, `ips`, `proxy`.  | keyword  |   | `firewall`  |
+
+
+## <a name="email"></a> Email fields
+
+Email metadata
+
+
+| Field  | Description  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|
+| <a name="email.sender"></a>email.sender  | Address of sender.  | keyword  |   |   |
+| <a name="email.recipient"></a>email.recipient  | Address of recipient.  | keyword  |   |   |
+| <a name="email.subject"></a>email.subject  | Subject of email.  | text  |   |   |
+| <a name="email.subject.raw"></a>email.subject.raw  | non-analyzed subject.  | keyword  | 1  |   |
+| <a name="email.message_id"></a>email.message_id  | ID of message.  | keyword  |   |   |
+| <a name="email.related_message_id"></a>email.related_message_id  | ID of related message.  | keyword  |   |   |
 
 
 ## <a name="error"></a> Error fields
@@ -250,6 +268,16 @@ Fields related to HTTP requests and responses.
 | <a name="http.response.status_code"></a>http.response.status_code  | Http response status code.  | long  |   | `404`  |
 | <a name="http.response.body"></a>http.response.body  | The full http response body.  | text  |   | `Hello world`  |
 | <a name="http.version"></a>http.version  | Http version.  | keyword  |   | `1.1`  |
+
+
+## <a name="infosec"></a> Information Security fields
+
+Information Security information. Used as part of authorisation.
+
+
+| Field  | Description  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|
+| <a name="infosec.unit_code"></a>infosec.unit_code  | Organisational unic code  | keyword  |   |   |
 
 
 ## <a name="kubernetes"></a> Kubernetes fields
@@ -436,6 +464,36 @@ The user_agent fields normally come from a browser request. They often show up i
 | <a name="user_agent.os.version"></a>user_agent.os.version  | Version of the operating system.  | keyword  |   |   |
 | <a name="user_agent.os.major"></a>user_agent.os.major  | Major version of the operating system.  | long  |   |   |
 | <a name="user_agent.os.minor"></a>user_agent.os.minor  | Minor version of the operating system.  | long  |   |   |
+
+
+## <a name="vulnerability"></a> Vulnerability fields
+
+To ingest vulnerability scan results
+
+
+| Field  | Description  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|
+| <a name="vulnerability.cves"></a>vulnerability.cves  | None  | keyword  |   |   |
+| <a name="vulnerability.cvss"></a>vulnerability.cvss  | None  | float  |   |   |
+| <a name="vulnerability.description"></a>vulnerability.description  | None  | keyword  |   |   |
+| <a name="vulnerability.test_id"></a>vulnerability.test_id  | None  | keyword  |   |   |
+| <a name="vulnerability.test_name"></a>vulnerability.test_name  | None  | keyword  |   |   |
+| <a name="vulnerability.test_output"></a>vulnerability.test_output  | None  | keyword  |   |   |
+| <a name="vulnerability.severity"></a>vulnerability.severity  | None  | keyword  |   |   |
+| <a name="vulnerability.scan_policy"></a>vulnerability.scan_policy  | None  | keyword  |   |   |
+| <a name="vulnerability.other_references"></a>vulnerability.other_references  | None  | keyword  |   |   |
+| <a name="vulnerability.solution"></a>vulnerability.solution  | None  | keyword  |   |   |
+| <a name="vulnerability.affected_software"></a>vulnerability.affected_software  | None  | keyword  |   |   |
+| <a name="vulnerability.bids"></a>vulnerability.bids  | None  | keyword  |   |   |
+| <a name="vulnerability.certs"></a>vulnerability.certs  | None  | keyword  |   |   |
+| <a name="vulnerability.impact"></a>vulnerability.impact  | None  | keyword  |   |   |
+| <a name="vulnerability.result_id"></a>vulnerability.result_id  | None  | keyword  |   |   |
+| <a name="vulnerability.solution_type"></a>vulnerability.solution_type  | None  | keyword  |   |   |
+| <a name="vulnerability.specific_result"></a>vulnerability.specific_result  | None  | keyword  |   |   |
+| <a name="vulnerability.task_id"></a>vulnerability.task_id  | None  | keyword  |   |   |
+| <a name="vulnerability.task_name"></a>vulnerability.task_name  | None  | keyword  |   |   |
+| <a name="vulnerability.detection_method"></a>vulnerability.detection_method  | None  | keyword  |   |   |
+| <a name="vulnerability.insight"></a>vulnerability.insight  | None  | keyword  |   |   |
 
 
 

@@ -186,6 +186,36 @@
             }
           }
         },
+        "email": {
+          "properties": {
+            "message_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "recipient": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "related_message_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "sender": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "subject": {
+              "fields": {
+                "raw": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              },
+              "norms": false,
+              "type": "text"
+            }
+          }
+        },
         "error": {
           "properties": {
             "code": {
@@ -431,6 +461,14 @@
               }
             },
             "version": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            }
+          }
+        },
+        "infosec": {
+          "properties": {
+            "unit_code": {
               "ignore_above": 1024,
               "type": "keyword"
             }
@@ -808,6 +846,93 @@
               "type": "keyword"
             },
             "version": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            }
+          }
+        },
+        "vulnerability": {
+          "properties": {
+            "affected_software": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "bids": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "certs": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "cves": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "cvss": {
+              "type": "float"
+            },
+            "description": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "detection_method": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "impact": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "insight": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "other_references": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "result_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "scan_policy": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "severity": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "solution": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "solution_type": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "specific_result": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "task_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "task_name": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "test_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "test_name": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "test_output": {
               "ignore_above": 1024,
               "type": "keyword"
             }
