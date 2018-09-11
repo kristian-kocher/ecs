@@ -93,6 +93,120 @@
             different values which are then freely searchable. If multiple
             messages exist, they can be combined into one message.
     
+    - name: baseline
+      title: Baseline
+      group: 2
+      description: >
+        security baseline fields
+        created the event.
+      footnote: >
+        Examples:
+      type: group
+      fields:
+        - name: email
+          type: keyword
+          description: >
+           email address of unit contact
+        - name: telephone
+          type: keyword
+          description: >
+           telephone number of unit contact
+        - name: jobtitle
+          type: text
+          description: >
+           jobtitle of unit contact
+        - name: name
+          type: keyword
+          description: >
+           name of unit contact
+        - name: scope
+          type: group
+          description: >
+           Scope of assessment
+          fields:
+            - name: in
+              type: text
+              description: >
+               what is in scope for this baseline assesment
+            - name: out
+              type: text
+              description: >
+               what is out of scope for this baseline assesment
+        - name: hlma
+          type: group
+          description: >
+           Higl Level Maturity Assessment
+          fields:
+            - name: description
+              type: text
+              description: >
+                description of respective security control
+            - name: id
+              type: keyword
+              description: >
+                description of respective security control
+            - name: title
+              type: keyword
+              description: >
+                title of respective security control
+            - name: service
+              type: keyword
+              description: >
+                service of respective security control
+            - name: score
+              type: short
+              description: >
+               score of respective security control
+            - name: comments
+              type: text
+              description: >
+                comments for respective security control
+        - name: tlsa
+          type: group
+          description: >
+           Technical Level Security Assessment
+          fields:
+            - name: description
+              type: text
+              description: >
+                description of respective security control
+            - name: id
+              type: keyword
+              description: >
+                description of respective security control
+            - name: title
+              type: keyword
+              description: >
+                title of respective security control
+            - name: constraints
+              type: text
+              description: >
+                constraints of respective security control
+            - name: mitigation
+              type: text
+              description: >
+                mitigation of respective security control
+            - name: priority
+              type: short
+              description: >
+                priority of respective security control
+            - name: service
+              type: keyword
+              description: >
+                service of respective security control
+            - name: implemented
+              type: keyword
+              description: >
+                implemented state respective security control
+            - name: status
+              type: keyword
+              description: >
+                status in respect to implemented of respective security control
+            - name: comments
+              type: text
+              description: >
+                comments for respective security control
+    
     - name: cloud
       title: Cloud
       group: 2

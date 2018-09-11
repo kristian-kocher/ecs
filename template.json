@@ -43,6 +43,108 @@
             }
           }
         },
+        "baseline": {
+          "properties": {
+            "email": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "hlma": {
+              "properties": {
+                "comments": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "description": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "id": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "score": {
+                  "type": "short"
+                },
+                "service": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "title": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
+            },
+            "jobtitle": {
+              "norms": false,
+              "type": "text"
+            },
+            "name": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "scope": {
+              "properties": {
+                "in": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "out": {
+                  "norms": false,
+                  "type": "text"
+                }
+              }
+            },
+            "telephone": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "tlsa": {
+              "properties": {
+                "comments": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "constraints": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "description": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "id": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "implemented": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "mitigation": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "priority": {
+                  "type": "short"
+                },
+                "service": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "status": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "title": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
         "cloud": {
           "properties": {
             "account": {

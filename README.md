@@ -25,6 +25,7 @@ For contributions please read the [Contributing Guide](CONTRIBUTING.md).
 ECS defines these fields.
  * [Base fields](#base)
  * [Agent fields](#agent)
+ * [Baseline fields](#baseline)
  * [Cloud fields](#cloud)
  * [Container fields](#container)
  * [Destination fields](#destination)
@@ -78,6 +79,25 @@ The agent fields contain the data about the agent/client/shipper that created th
 
 
 Examples: In the case of Beats for logs, the agent.name is filebeat. For APM, it is the agent running in the app/service. The agent information does not change if data is sent through queuing systems like Kafka, Redis, or processing systems such as Logstash or APM Server.
+
+
+## <a name="baseline"></a> Baseline fields
+
+security baseline fields created the event.
+
+
+| Field  | Description  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|
+| <a name="baseline.email"></a>baseline.email  | email address of unit contact  | keyword  |   |   |
+| <a name="baseline.telephone"></a>baseline.telephone  | telephone number of unit contact  | keyword  |   |   |
+| <a name="baseline.jobtitle"></a>baseline.jobtitle  | jobtitle of unit contact  | text  |   |   |
+| <a name="baseline.name"></a>baseline.name  | name of unit contact  | keyword  |   |   |
+| <a name="baseline.scope"></a>baseline.scope  | Scope of assessment  | group  |   |   |
+| <a name="baseline.hlma"></a>baseline.hlma  | Higl Level Maturity Assessment  | group  |   |   |
+| <a name="baseline.tlsa"></a>baseline.tlsa  | Technical Level Security Assessment  | group  |   |   |
+
+
+Examples:
 
 
 ## <a name="cloud"></a> Cloud fields
