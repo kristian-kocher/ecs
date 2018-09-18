@@ -7,12 +7,10 @@ agent.ephemeral_id,keyword,0,8a4f500f
 agent.id,keyword,0,8a4f500d
 agent.name,keyword,0,filebeat
 agent.version,keyword,0,6.0.0-rc2
-baseline.email,keyword,0,
+baseline.contact,group,0,
 baseline.hlma,group,0,
-baseline.jobtitle,text,0,
-baseline.name,keyword,0,
+baseline.revision,short,0,
 baseline.scope,group,0,
-baseline.telephone,keyword,0,
 baseline.tlsa,group,0,
 cloud.account.id,keyword,0,666777888999
 cloud.availability_zone,keyword,0,us-east-1c
@@ -98,6 +96,9 @@ http.response.body,text,0,Hello world
 http.response.status_code,long,0,404
 http.version,keyword,0,1.1
 infosec.unit_code,keyword,0,
+pras.l1,keyword,0,
+pras.l2,keyword,0,
+pras.l3,keyword,0,
 kubernetes.annotations,object,0,
 kubernetes.container.name,keyword,0,
 kubernetes.labels,object,0,

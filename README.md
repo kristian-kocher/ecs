@@ -38,6 +38,7 @@ ECS defines these fields.
  * [Host fields](#host)
  * [HTTP fields](#http)
  * [Information Security fields](#infosec)
+ * [PRAS fields](#pras)
  * [Kubernetes fields](#kubernetes)
  * [Log fields](#log)
  * [Network fields](#network)
@@ -88,10 +89,8 @@ security baseline fields created the event.
 
 | Field  | Description  | Type  | Multi Field  | Example  |
 |---|---|---|---|---|
-| <a name="baseline.email"></a>baseline.email  | email address of unit contact  | keyword  |   |   |
-| <a name="baseline.telephone"></a>baseline.telephone  | telephone number of unit contact  | keyword  |   |   |
-| <a name="baseline.jobtitle"></a>baseline.jobtitle  | jobtitle of unit contact  | text  |   |   |
-| <a name="baseline.name"></a>baseline.name  | name of unit contact  | keyword  |   |   |
+| <a name="baseline.contact"></a>baseline.contact  | Contact responsible for the submission  | group  |   |   |
+| <a name="baseline.revision"></a>baseline.revision  | Baseline revision  | short  |   |   |
 | <a name="baseline.scope"></a>baseline.scope  | Scope of assessment  | group  |   |   |
 | <a name="baseline.hlma"></a>baseline.hlma  | Higl Level Maturity Assessment  | group  |   |   |
 | <a name="baseline.tlsa"></a>baseline.tlsa  | Technical Level Security Assessment  | group  |   |   |
@@ -297,7 +296,19 @@ Information Security information. Used as part of authorisation.
 
 | Field  | Description  | Type  | Multi Field  | Example  |
 |---|---|---|---|---|
-| <a name="infosec.unit_code"></a>infosec.unit_code  | Organisational unic code  | keyword  |   |   |
+| <a name="infosec.unit_code"></a>infosec.unit_code  | Information Security Team unit code (based on OAK LDAP unit codes).  | keyword  |   |   |
+
+
+## <a name="pras"></a> PRAS fields
+
+PRAS
+
+
+| Field  | Description  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|
+| <a name="pras.l1"></a>pras.l1  | PRAS Level 1 - the division.  | keyword  |   |   |
+| <a name="pras.l2"></a>pras.l2  | PRAS Level 2 - the department.  | keyword  |   |   |
+| <a name="pras.l3"></a>pras.l3  | PRAS Level 3 - the sub-department (sometimes use for service).  | keyword  |   |   |
 
 
 ## <a name="kubernetes"></a> Kubernetes fields

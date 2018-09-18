@@ -45,12 +45,32 @@
         },
         "baseline": {
           "properties": {
-            "email": {
-              "ignore_above": 1024,
-              "type": "keyword"
+            "contact": {
+              "properties": {
+                "email": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "jobtitle": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "name": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "telephone": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
             },
             "hlma": {
               "properties": {
+                "category": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
                 "comments": {
                   "norms": false,
                   "type": "text"
@@ -66,42 +86,33 @@
                 "score": {
                   "type": "short"
                 },
-                "service": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
                 "title": {
                   "ignore_above": 1024,
                   "type": "keyword"
                 }
               }
             },
-            "jobtitle": {
-              "norms": false,
-              "type": "text"
-            },
-            "name": {
-              "ignore_above": 1024,
-              "type": "keyword"
+            "revision": {
+              "type": "short"
             },
             "scope": {
               "properties": {
-                "in": {
+                "excluded": {
                   "norms": false,
                   "type": "text"
                 },
-                "out": {
+                "included": {
                   "norms": false,
                   "type": "text"
                 }
               }
             },
-            "telephone": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
             "tlsa": {
               "properties": {
+                "category": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
                 "comments": {
                   "norms": false,
                   "type": "text"
@@ -129,13 +140,21 @@
                 "priority": {
                   "type": "short"
                 },
-                "service": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
+                "review_reason": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "review_response": {
+                  "norms": false,
+                  "type": "text"
                 },
                 "status": {
                   "ignore_above": 1024,
                   "type": "keyword"
+                },
+                "testing": {
+                  "norms": false,
+                  "type": "text"
                 },
                 "title": {
                   "ignore_above": 1024,
@@ -719,6 +738,22 @@
               "type": "keyword"
             },
             "version": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            }
+          }
+        },
+        "pras": {
+          "properties": {
+            "l1": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "l2": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "l3": {
               "ignore_above": 1024,
               "type": "keyword"
             }

@@ -9,4 +9,23 @@
     - name: unit_code
       type: keyword
       description: >
-        Organisational unic code
+        Information Security Team unit code (based on OAK LDAP unit codes).
+- name: pras
+  title: PRAS
+  group: 2
+  description: >
+   PRAS
+  type: group
+  fields:
+    - name: l1
+      type: keyword
+      description: >
+       PRAS Level 1 - the division.
+    - name: l2
+      type: keyword
+      description: >
+       PRAS Level 2 - the department.
+    - name: l3
+      type: keyword
+      description: >
+       PRAS Level 3 - the sub-department (sometimes use for service).
