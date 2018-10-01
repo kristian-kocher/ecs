@@ -43,6 +43,127 @@
             }
           }
         },
+        "baseline": {
+          "properties": {
+            "contact": {
+              "properties": {
+                "email": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "jobtitle": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "name": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "telephone": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
+            },
+            "hlma": {
+              "properties": {
+                "category": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "comments": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "description": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "id": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "score": {
+                  "type": "short"
+                },
+                "title": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
+            },
+            "revision": {
+              "type": "short"
+            },
+            "scope": {
+              "properties": {
+                "excluded": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "included": {
+                  "norms": false,
+                  "type": "text"
+                }
+              }
+            },
+            "tlsa": {
+              "properties": {
+                "category": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "comments": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "constraints": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "description": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "id": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "implemented": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "mitigation": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "priority": {
+                  "type": "short"
+                },
+                "review_reason": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "review_response": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "status": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "testing": {
+                  "norms": false,
+                  "type": "text"
+                },
+                "title": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
         "cloud": {
           "properties": {
             "account": {
@@ -183,6 +304,36 @@
             "version": {
               "ignore_above": 1024,
               "type": "keyword"
+            }
+          }
+        },
+        "email": {
+          "properties": {
+            "message_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "recipient": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "related_message_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "sender": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "subject": {
+              "fields": {
+                "raw": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              },
+              "norms": false,
+              "type": "text"
             }
           }
         },
@@ -436,6 +587,14 @@
             }
           }
         },
+        "infosec": {
+          "properties": {
+            "unit_code": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            }
+          }
+        },
         "kubernetes": {
           "properties": {
             "annotations": {
@@ -579,6 +738,22 @@
               "type": "keyword"
             },
             "version": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            }
+          }
+        },
+        "pras": {
+          "properties": {
+            "l1": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "l2": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "l3": {
               "ignore_above": 1024,
               "type": "keyword"
             }
@@ -920,6 +1095,93 @@
               "type": "keyword"
             },
             "threat_actor": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            }
+          }
+        },
+        "vulnerability": {
+          "properties": {
+            "affected_software": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "bids": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "certs": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "cves": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "cvss": {
+              "type": "float"
+            },
+            "description": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "detection_method": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "impact": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "insight": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "other_references": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "result_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "scan_policy": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "severity": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "solution": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "solution_type": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "specific_result": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "task_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "task_name": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "test_id": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "test_name": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "test_output": {
               "ignore_above": 1024,
               "type": "keyword"
             }

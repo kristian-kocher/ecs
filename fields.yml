@@ -93,6 +93,141 @@
             different values which are then freely searchable. If multiple
             messages exist, they can be combined into one message.
     
+    - name: baseline
+      title: Baseline
+      group: 2
+      description: >
+        security baseline fields
+        created the event.
+      footnote: >
+        Examples:
+      type: group
+      fields:
+        - name: contact
+          type: group
+          description: >
+           Contact responsible for the submission
+          fields:
+            - name: name
+              type: keyword
+              description: >
+               Name of unit contact
+            - name: email
+              type: keyword
+              description: >
+               Email address of unit contact
+            - name: telephone
+              type: keyword
+              description: >
+               Telephone number of unit contact
+            - name: jobtitle
+              type: text
+              description: >
+               Jobtitle of unit contact
+        - name: revision
+          type: short
+          description: >
+           Baseline revision
+        - name: scope
+          type: group
+          description: >
+           Scope of assessment
+          fields:
+            - name: included
+              type: text
+              description: >
+               Description of in-scope systems for the baseline assessment.
+            - name: excluded
+              type: text
+              description: >
+               Description of out-of-scope systems for the baseline assessment.
+        - name: hlma
+          type: group
+          description: >
+           Higl Level Maturity Assessment
+          fields:
+            - name: id
+              type: keyword
+              description: >
+                Identifier of the high level maturity control (e.g. ABC.01).
+            - name: title
+              type: keyword
+              description: >
+                TODO
+            - name: description
+              type: text
+              description: >
+                Description of the high level maturity control starting with the id.
+            - name: category
+              type: keyword
+              description: >
+                Category of the high level maturity control.
+            - name: score
+              type: short
+              description: >
+               Respondent's maturity score for the high level maturity control.
+            - name: comments
+              type: text
+              description: >
+                Respondent's comments for the high level maturity control.
+        - name: tlsa
+          type: group
+          description: >
+           Technical Level Security Assessment
+          fields:
+            - name: id
+              type: keyword
+              description: >
+               Identifier of the technical level security control (e.g. ABC.01).
+            - name: title
+              type: keyword
+              description: >
+               TODO
+            - name: description
+              type: text
+              description: >
+               Description of technical level security control starting with the id.
+            - name: testing
+              type: text
+              description: >
+               Examples on how to test the implementation of the technical level security control.
+            - name: category
+              type: keyword
+              description: >
+               Category of the technical level security control.
+            - name: priority
+              type: short
+              description: >
+               Priority of the technical level security control with integer values ranging from 1 (highest) to 5 (lowest).
+            - name: implemented
+              type: keyword
+              description: >
+               Respondent's assessment on the implementation of the technical level security control. Valid values are: 'Yes', 'No', 'N.a.', and 'Alternative Controls'.
+            - name: comments
+              type: text
+              description: >
+               Respondent's comments for the technical level security control.
+            - name: constraints
+              type: text
+              description: >
+               Respondent's description of constraints requiring an alternative control for the technical level security control.
+            - name: mitigation
+              type: text
+              description: >
+               Respondent's description of the implemented mitigation using the alternative control for the technical level security control.
+            - name: status
+              type: keyword
+              description: >
+               Information Security Team's decision on the implementation of a control. This field is automatically generated based on baseline.tlsa.implemented: 'Yes' -> 'Implemented', 'No' -> 'Not implemented', 'N.a.' -> 'Not implemented', 'Alternative Control' -> None (to indicate need for review).
+            - name: review_response
+              type: text
+              description: >
+               Information Security Team's response to an alternative control implementation.
+            - name: review_reason
+              type: text
+              description: >
+               Information Security Team's reasoning to an alternative control implementation.
+    
     - name: cloud
       title: Cloud
       group: 2
@@ -274,6 +409,44 @@
             There is no predefined list of device types. Some examples are
             `endpoint`, `firewall`, `ids`, `ips`, `proxy`.
           example: firewall
+    
+    - name: email
+      title: Email
+      group: 2
+      description: >
+        Email metadata
+      type: group
+      fields:
+        - name: sender
+          type: keyword
+          description: >
+            Address of sender.
+    
+        - name: recipient
+          type: keyword
+          description: >
+            Address of recipient.
+    
+        - name: subject
+          type: text
+          description: >
+            Subject of email.
+    
+          multi_fields:
+            - name: raw
+              type: keyword
+              description: >
+                non-analyzed subject.
+    
+        - name: message_id
+          type: keyword
+          description: >
+            ID of message.
+    
+        - name: related_message_id
+          type: keyword
+          description: >
+            ID of related message.
     
     - name: error
       title: Error
@@ -673,6 +846,37 @@
           description: >
             Http version.
           example: 1.1
+    
+    - name: infosec
+      title: Information Security
+      group: 2
+      description: >
+        Information Security information. Used as part of authorisation.
+      type: group
+      fields:
+        - name: unit_code
+          type: keyword
+          description: >
+            Information Security Team unit code (based on OAK LDAP unit codes).
+    - name: pras
+      title: PRAS
+      group: 2
+      description: >
+       PRAS
+      type: group
+      fields:
+        - name: l1
+          type: keyword
+          description: >
+           PRAS Level 1 - the division.
+        - name: l2
+          type: keyword
+          description: >
+           PRAS Level 2 - the department.
+        - name: l3
+          type: keyword
+          description: >
+           PRAS Level 3 - the sub-department (sometimes use for service).
     
     - name: kubernetes
       title: Kubernetes
@@ -1481,3 +1685,95 @@
             taken from <http://veriscommunity.net/enums.html#section-incident_desc>.
           example: Int - log review
           phase: 0
+    
+    - name: vulnerability
+      title: Vulnerability
+      group: 2
+      description: >
+        To ingest vulnerability scan results
+    
+      type: group
+      fields:
+        - name: cves
+          type: keyword
+          description:
+    
+        - name: cvss
+          type: float
+          description:
+    
+        - name: description
+          type: keyword
+          description:
+    
+        - name: test_id
+          type: keyword
+          description:
+    
+        - name: test_name
+          type: keyword
+          description:
+    
+        - name: test_output
+          type: keyword
+          description:
+    
+        - name: severity
+          type: keyword
+          description:
+    
+        - name: scan_policy
+          type: keyword
+          description:
+    
+        - name: other_references
+          type: keyword
+          description:
+    
+        - name: solution
+          type: keyword
+          description:
+    
+        - name: affected_software
+          type: keyword
+          description:
+    
+        - name: bids
+          type: keyword
+          description:
+    
+        - name: certs
+          type: keyword
+          description:
+    
+        - name: impact
+          type: keyword
+          description:
+    
+        - name: result_id
+          type: keyword
+          description:
+    
+        - name: solution_type
+          type: keyword
+          description:
+    
+        - name: specific_result
+          type: keyword
+          description:
+    
+        - name: task_id
+          type: keyword
+          description:
+    
+        - name: task_name
+          type: keyword
+          description:
+    
+        - name: detection_method
+          type: keyword
+          description:
+    
+        - name: insight
+          type: keyword
+          description:

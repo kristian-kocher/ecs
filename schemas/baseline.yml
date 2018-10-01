@@ -1,0 +1,135 @@
+---
+- name: baseline
+  title: Baseline
+  group: 2
+  description: >
+    security baseline fields
+    created the event.
+  footnote: >
+    Examples:
+  type: group
+  fields:
+    - name: contact
+      type: group
+      description: >
+       Contact responsible for the submission
+      fields:
+        - name: name
+          type: keyword
+          description: >
+           Name of unit contact
+        - name: email
+          type: keyword
+          description: >
+           Email address of unit contact
+        - name: telephone
+          type: keyword
+          description: >
+           Telephone number of unit contact
+        - name: jobtitle
+          type: text
+          description: >
+           Jobtitle of unit contact
+    - name: revision
+      type: short
+      description: >
+       Baseline revision
+    - name: scope
+      type: group
+      description: >
+       Scope of assessment
+      fields:
+        - name: included
+          type: text
+          description: >
+           Description of in-scope systems for the baseline assessment.
+        - name: excluded
+          type: text
+          description: >
+           Description of out-of-scope systems for the baseline assessment.
+    - name: hlma
+      type: group
+      description: >
+       Higl Level Maturity Assessment
+      fields:
+        - name: id
+          type: keyword
+          description: >
+            Identifier of the high level maturity control (e.g. ABC.01).
+        - name: title
+          type: keyword
+          description: >
+            TODO
+        - name: description
+          type: text
+          description: >
+            Description of the high level maturity control starting with the id.
+        - name: category
+          type: keyword
+          description: >
+            Category of the high level maturity control.
+        - name: score
+          type: short
+          description: >
+           Respondent's maturity score for the high level maturity control.
+        - name: comments
+          type: text
+          description: >
+            Respondent's comments for the high level maturity control.
+    - name: tlsa
+      type: group
+      description: >
+       Technical Level Security Assessment
+      fields:
+        - name: id
+          type: keyword
+          description: >
+           Identifier of the technical level security control (e.g. ABC.01).
+        - name: title
+          type: keyword
+          description: >
+           TODO
+        - name: description
+          type: text
+          description: >
+           Description of technical level security control starting with the id.
+        - name: testing
+          type: text
+          description: >
+           Examples on how to test the implementation of the technical level security control.
+        - name: category
+          type: keyword
+          description: >
+           Category of the technical level security control.
+        - name: priority
+          type: short
+          description: >
+           Priority of the technical level security control with integer values ranging from 1 (highest) to 5 (lowest).
+        - name: implemented
+          type: keyword
+          description: >
+           Respondent's assessment on the implementation of the technical level security control. Valid values are: 'Yes', 'No', 'N.a.', and 'Alternative Controls'.
+        - name: comments
+          type: text
+          description: >
+           Respondent's comments for the technical level security control.
+        - name: constraints
+          type: text
+          description: >
+           Respondent's description of constraints requiring an alternative control for the technical level security control.
+        - name: mitigation
+          type: text
+          description: >
+           Respondent's description of the implemented mitigation using the alternative control for the technical level security control.
+        - name: status
+          type: keyword
+          description: >
+           Information Security Team's decision on the implementation of a control. This field is automatically generated based on baseline.tlsa.implemented: 'Yes' -> 'Implemented', 'No' -> 'Not implemented', 'N.a.' -> 'Not implemented', 'Alternative Control' -> None (to indicate need for review).
+        - name: review_response
+          type: text
+          description: >
+           Information Security Team's response to an alternative control implementation.
+        - name: review_reason
+          type: text
+          description: >
+           Information Security Team's reasoning to an alternative control implementation.
