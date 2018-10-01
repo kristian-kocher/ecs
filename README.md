@@ -48,6 +48,7 @@ ECS defines these fields.
  * [URL fields](#url)
  * [User fields](#user)
  * [User agent fields](#user_agent)
+ * [VERIS fields](#veris)
 
 ## <a name="base"></a> Base fields
 
@@ -470,6 +471,21 @@ The user_agent fields normally come from a browser request. They often show up i
 | <a name="user_agent.os.version"></a>user_agent.os.version  | Version of the operating system.  | keyword  |   |   |
 | <a name="user_agent.os.major"></a>user_agent.os.major  | Major version of the operating system.  | long  |   |   |
 | <a name="user_agent.os.minor"></a>user_agent.os.minor  | Minor version of the operating system.  | long  |   |   |
+
+
+## <a name="veris"></a> VERIS fields
+
+The VERIS group documents the vocabulary for event recording and incident sharing (VERIS) framework <http://veriscommunity.net/>.
+
+
+| Field  | Description  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|
+| <a name="veris.incident_confirmation"></a>veris.incident_confirmation  | Describes if this item is in fact an incident, and the status of that incident. This is expected to be one of 'Suspected', 'Confirmed', 'False Positive', 'Near miss' or 'Not an incident'.  | keyword  |   | `Suspected`  |
+| <a name="veris.threat_actor"></a>veris.threat_actor  | Describes the threat actor - the party who is responsible for this incident. This is expected to be at least one of 'External', 'Internal', or 'Partner Organisation'.  | keyword  |   | `External`  |
+| <a name="veris.threat_action"></a>veris.threat_action  | Describes the threat action - what were the action affecting the asset. This is expected to be at least one of 'Malware', 'Misuse', 'Social', 'Hacking', 'Error', 'Physical', 'Environmental' or 'Unknown'.  | keyword  |   | `Social`  |
+| <a name="veris.compromised_assets"></a>veris.compromised_assets  | Describes the compromised assets - the things affected by the incident. This is expected to be at least one of 'End-user device', 'People', 'Server', 'Network', 'Media', 'Terminal' or 'Unknown'.  | keyword  |   | `People`  |
+| <a name="veris.security_attributes"></a>veris.security_attributes  | Describes the security attributes - how the asset was affected. This is expected to be at least one of 'Confidentiality - visiblity', 'Integrity - change or destroy', 'Availability' or 'Other'.  | keyword  |   | `Integrity - change or destroy`  |
+| <a name="veris.discovery_method"></a>veris.discovery_method  | Describes how the incident was discoverd. This is expected to be at least one of a small number of values taken from <http://veriscommunity.net/enums.html#section-incident_desc>.  | keyword  |   | `Int - log review`  |
 
 
 

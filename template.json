@@ -896,6 +896,34 @@
               "type": "keyword"
             }
           }
+        },
+        "veris": {
+          "properties": {
+            "compromised_assets": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "discovery_method": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "incident_confirmation": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "security_attributes": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "threat_action": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "threat_actor": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            }
+          }
         }
       }
     }

@@ -1413,3 +1413,71 @@
           type: long
           description: >
             Minor version of the operating system.
+    
+    - name: veris
+      title: VERIS
+      group: 2
+      description: >
+        The VERIS group documents the vocabulary for event recording and
+        incident sharing (VERIS) framework <http://veriscommunity.net/>.
+      type: group
+      fields:
+        - name: incident_confirmation
+          title: Incident Confirmation
+          type: keyword
+          description: >
+            Describes if this item is in fact an incident, and the status of
+            that incident.
+            This is expected to be one of 'Suspected', 'Confirmed', 'False
+            Positive', 'Near miss' or 'Not an incident'.
+          example: Suspected
+          phase: 0
+        - name: threat_actor
+          title: Threat Actor
+          type: keyword
+          description: >
+            Describes the threat actor - the party who is responsible for
+            this incident.
+            This is expected to be at least one of 'External', 'Internal',
+            or 'Partner Organisation'.
+          example: External
+          phase: 0
+        - name: threat_action
+          title: Threat Action
+          type: keyword
+          description: >
+            Describes the threat action - what were the action affecting the
+            asset.
+            This is expected to be at least one of 'Malware', 'Misuse', 'Social',
+            'Hacking', 'Error', 'Physical', 'Environmental' or 'Unknown'.
+          example: Social
+          phase: 0
+        - name: compromised_assets
+          title: Compromised Assets
+          type: keyword
+          description: >
+            Describes the compromised assets - the things affected by the
+            incident.
+            This is expected to be at least one of 'End-user device',
+            'People', 'Server', 'Network', 'Media', 'Terminal' or 'Unknown'.
+          example: People
+          phase: 0
+        - name: security_attributes
+          title: Security Attributes
+          type: keyword
+          description: >
+            Describes the security attributes - how the asset was affected.
+            This is expected to be at least one of 'Confidentiality -
+            visiblity', 'Integrity - change or destroy', 'Availability' or
+            'Other'.
+          example: Integrity - change or destroy
+          phase: 0
+        - name: discovery_method
+          title: Discovery Method
+          type: keyword
+          description: >
+            Describes how the incident was discoverd.
+            This is expected to be at least one of a small number of values
+            taken from <http://veriscommunity.net/enums.html#section-incident_desc>.
+          example: Int - log review
+          phase: 0
