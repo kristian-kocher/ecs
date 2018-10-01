@@ -43,6 +43,7 @@ ECS defines these fields.
  * [Process fields](#process)
  * [Service fields](#service)
  * [Source fields](#source)
+ * [Ticket fields](#ticket)
  * [TLS fields](#tls)
  * [URL fields](#url)
  * [User fields](#user)
@@ -366,6 +367,39 @@ Source fields describe details about the source of the event.
 | <a name="source.mac"></a>source.mac  | MAC address of the source.  | keyword  |   |   |
 | <a name="source.domain"></a>source.domain  | Source domain.  | keyword  |   |   |
 | <a name="source.subdomain"></a>source.subdomain  | Source subdomain.  | keyword  |   |   |
+
+
+## <a name="ticket"></a> Ticket fields
+
+The ticket fields contain data about tickets from ticketing systems. This current version is focused on Reqest Tracker (https://www.bestpractical.com/rt/), but future versions will try to be more agnostic.
+
+
+| Field  | Description  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|
+| <a name="ticket.id"></a>ticket.id  | The unique identifier for this ticket  | integer  |   | `12345`  |
+| <a name="ticket.subject"></a>ticket.subject  | The subject or a short summary for this ticket  | text  |   | `Huston, we have a problem`  |
+| <a name="ticket.status"></a>ticket.status  | The status of this ticket. It is expected that the set of statuses are a known (short) list.  | keyword  |   | `resolved`  |
+| <a name="ticket.priority"></a>ticket.priority  | The importance of this ticket as an integer  | integer  |   | `3`  |
+| <a name="ticket.queue"></a>ticket.queue  | The queue or service of this ticket. It is expected that the queues or services are from a defined list.  | keyword  |   | `email`  |
+| <a name="ticket.owner"></a>ticket.owner  | The responsible person for this ticket. This should uniquely identify each possible owner, and it is generally expected that this will be a username or email address.  | keyword  |   | `john.smith@company.example.com`  |
+| <a name="ticket.requestors"></a>ticket.requestors  | The person or person(s) originating or partaking in the request. This is generally expected that this will be a username or email address.  | keyword  |   | `['john.smith@company.example.com', 'jane.doe@company.example.com']`  |
+| <a name="ticket.ccs"></a>ticket.ccs  | Other people interested in the correspondance that appears on this ticket. This could be an interested party or someone who should be aware of what is going on. It is generally expected that this will be a username or email address.  | keyword  |   | `['alice@company.example.com', 'bob@company.example.com']`  |
+| <a name="ticket.adminccs"></a>ticket.adminccs  | People other than the owner interested in the full history (including internal comments that happens on this ticket. This could be an an internal party who is not normally interested in other tickets It is generally expected that this will be a username or email address.  | keyword  |   |   |
+| <a name="ticket.created"></a>ticket.created  | The date and time the ticket was created. Set by the system automatically.  | date  |   |   |
+| <a name="ticket.starts"></a>ticket.starts  | When the ticket should be started. A user set date and time which may have local meaning.  | date  |   |   |
+| <a name="ticket.started"></a>ticket.started  | The date and time the ticket was started (i.e. when first taken). Set by the system automatically.  | date  |   |   |
+| <a name="ticket.told"></a>ticket.told  | The date and time the ticket was started (i.e. when first taken). Set by the system automatically.  | date  |   |   |
+| <a name="ticket.due"></a>ticket.due  | The date and time the ticket should be finished by. This is either user set or determined by the queue default.  | date  |   |   |
+| <a name="ticket.closed"></a>ticket.closed  | The date and time the ticket was resolved. Set by the system automatically.  | date  |   |   |
+| <a name="ticket.updated"></a>ticket.updated  | The date and time the ticket was last changed in some way (correspondance, comments, status change, etc). Set by the system automatically.  | date  |   |   |
+| <a name="ticket.depends_on"></a>ticket.depends_on  | The list of other tickets that this ticket depends on.  | long  |   |   |
+| <a name="ticket.depended_on_by"></a>ticket.depended_on_by  | The list of other tickets that this ticket is a dependancy of.  | long  |   |   |
+| <a name="ticket.parents"></a>ticket.parents  | The list of other tickets that this ticket is a child of.  | long  |   |   |
+| <a name="ticket.children"></a>ticket.children  | The list of other tickets that this ticket is a parent of.  | long  |   |   |
+| <a name="ticket.refers_to"></a>ticket.refers_to  | The list of other tickets that this ticket refers to.  | long  |   |   |
+| <a name="ticket.referred_to_by"></a>ticket.referred_to_by  | The list of other tickets that refer to this ticket.  | long  |   |   |
+| <a name="ticket.transaction_type"></a>ticket.transaction_type  | The type of the transaction (comment, correspondance, create, etc). As we have one document per ticket, this may not hold much value.  | keyword  |   | `Set Owner`  |
+| <a name="ticket.transaction_user"></a>ticket.transaction_user  | The user (username or email address if unpriviledged) completing the transaction  | long  |   | `user@example.com`  |
 
 
 ## <a name="tls"></a> TLS fields

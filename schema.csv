@@ -128,6 +128,30 @@ source.ip,ip,0,
 source.mac,keyword,1,
 source.port,long,1,
 source.subdomain,keyword,1,
+ticket.adminccs,keyword,0,
+ticket.ccs,keyword,0,"['alice@company.example.com', 'bob@company.example.com']"
+ticket.children,long,0,
+ticket.closed,date,0,
+ticket.created,date,0,
+ticket.depended_on_by,long,0,
+ticket.depends_on,long,0,
+ticket.due,date,0,
+ticket.id,integer,0,12345
+ticket.owner,keyword,0,john.smith@company.example.com
+ticket.parents,long,0,
+ticket.priority,integer,0,3
+ticket.queue,keyword,0,email
+ticket.referred_to_by,long,0,
+ticket.refers_to,long,0,
+ticket.requestors,keyword,0,"['john.smith@company.example.com', 'jane.doe@company.example.com']"
+ticket.started,date,0,
+ticket.starts,date,0,
+ticket.status,keyword,0,resolved
+ticket.subject,text,0,"Huston, we have a problem"
+ticket.told,date,0,
+ticket.transaction_type,keyword,0,Set Owner
+ticket.transaction_user,long,0,user@example.com
+ticket.updated,date,0,
 tls.certificates,keyword,0,
 tls.ciphersuite,keyword,0,ECDHE-ECDSA-AES-128-CBC-SHA
 tls.servername,keyword,0,localhost

@@ -664,6 +664,90 @@
           "ignore_above": 1024,
           "type": "keyword"
         },
+        "ticket": {
+          "properties": {
+            "adminccs": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "ccs": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "children": {
+              "type": "long"
+            },
+            "closed": {
+              "type": "date"
+            },
+            "created": {
+              "type": "date"
+            },
+            "depended_on_by": {
+              "type": "long"
+            },
+            "depends_on": {
+              "type": "long"
+            },
+            "due": {
+              "type": "date"
+            },
+            "id": {
+              "type": "long"
+            },
+            "owner": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "parents": {
+              "type": "long"
+            },
+            "priority": {
+              "type": "long"
+            },
+            "queue": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "referred_to_by": {
+              "type": "long"
+            },
+            "refers_to": {
+              "type": "long"
+            },
+            "requestors": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "started": {
+              "type": "date"
+            },
+            "starts": {
+              "type": "date"
+            },
+            "status": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "subject": {
+              "norms": false,
+              "type": "text"
+            },
+            "told": {
+              "type": "date"
+            },
+            "transaction_type": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "transaction_user": {
+              "type": "long"
+            },
+            "updated": {
+              "type": "date"
+            }
+          }
+        },
         "tls": {
           "properties": {
             "certificates": {
