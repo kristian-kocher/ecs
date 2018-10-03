@@ -127,7 +127,7 @@
         - name: revision
           type: short
           description: >
-           Baseline revision
+           Revision of the baseline control set.
         - name: scope
           type: group
           description: >
@@ -447,6 +447,81 @@
           type: keyword
           description: >
             ID of related message.
+    
+        - name: recipient_count
+          type: short
+          description: >
+           Number of recipients for email.
+    
+        - name: ratelimit
+          type: boolean
+          description: >
+           Sender has hit the ratelimit.
+    
+        - name: exchange
+          type: group
+          description: >
+           Information specific to exchange email logs
+          fields:
+            - name: connector_id
+              type: keyword
+              description: >
+    
+            - name: custom_data
+              type: keyword
+              description: >
+    
+            - name: directionality
+              type: keyword
+              description: >
+    
+            - name: event_id
+              type: keyword
+              description: >
+    
+            - name: internal_message_id
+              type: keyword
+              description: >
+    
+            - name: message_info
+              type: keyword
+              description: >
+    
+            - name: original_client_ip
+              type: ip
+              description: >
+    
+            - name: original_server_ip
+              type: ip
+              description: >
+    
+            - name: recipient_status
+              type: keyword
+              description: >
+    
+            - name: reference
+              type: keyword
+              description: >
+    
+            - name: related_recipient_address
+              type: keyword
+              description: >
+    
+            - name: source
+              type: keyword
+              description: >
+    
+            - name: source_context
+              type: keyword
+              description: >
+    
+            - name: tenant_id
+              type: keyword
+              description: >
+    
+            - name: total_bytes
+              type: integer
+              description: >
     
     - name: error
       title: Error
@@ -857,7 +932,15 @@
         - name: unit_code
           type: keyword
           description: >
-            Information Security Team unit code (based on OAK LDAP unit codes).
+           Information Security Team unit code (based on OAK LDAP unit codes).
+        - name: log_type
+          type: keyword
+          description: >
+           Type of log, used so determine index names.
+        - name: group
+          type: keyword
+          description: >
+           Unit or team we receive the logs from, used to determine index names and ACLs.
     - name: pras
       title: PRAS
       group: 2

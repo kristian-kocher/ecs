@@ -309,13 +309,80 @@
         },
         "email": {
           "properties": {
+            "exchange": {
+              "properties": {
+                "connector_id": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "custom_data": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "directionality": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "event_id": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "internal_message_id": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "message_info": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "original_client_ip": {
+                  "type": "ip"
+                },
+                "original_server_ip": {
+                  "type": "ip"
+                },
+                "recipient_status": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "reference": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "related_recipient_address": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "source": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "source_context": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "tenant_id": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "total_bytes": {
+                  "type": "long"
+                }
+              }
+            },
             "message_id": {
               "ignore_above": 1024,
               "type": "keyword"
             },
+            "ratelimit": {
+              "type": "boolean"
+            },
             "recipient": {
               "ignore_above": 1024,
               "type": "keyword"
+            },
+            "recipient_count": {
+              "type": "short"
             },
             "related_message_id": {
               "ignore_above": 1024,
@@ -589,6 +656,14 @@
         },
         "infosec": {
           "properties": {
+            "group": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "log_type": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
             "unit_code": {
               "ignore_above": 1024,
               "type": "keyword"

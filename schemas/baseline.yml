@@ -33,7 +33,7 @@
     - name: revision
       type: short
       description: >
-       Baseline revision
+       Revision of the baseline control set.
     - name: scope
       type: group
       description: >

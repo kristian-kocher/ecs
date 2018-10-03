@@ -9,7 +9,15 @@
     - name: unit_code
       type: keyword
       description: >
-        Information Security Team unit code (based on OAK LDAP unit codes).
+       Information Security Team unit code (based on OAK LDAP unit codes).
+    - name: log_type
+      type: keyword
+      description: >
+       Type of log, used so determine index names.
+    - name: group
+      type: keyword
+      description: >
+       Unit or team we receive the logs from, used to determine index names and ACLs.
 - name: pras
   title: PRAS
   group: 2

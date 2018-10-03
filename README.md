@@ -90,7 +90,7 @@ security baseline fields created the event.
 | Field  | Description  | Type  | Multi Field  | Example  |
 |---|---|---|---|---|
 | <a name="baseline.contact"></a>baseline.contact  | Contact responsible for the submission  | group  |   |   |
-| <a name="baseline.revision"></a>baseline.revision  | Baseline revision  | short  |   |   |
+| <a name="baseline.revision"></a>baseline.revision  | Revision of the baseline control set.  | short  |   |   |
 | <a name="baseline.scope"></a>baseline.scope  | Scope of assessment  | group  |   |   |
 | <a name="baseline.hlma"></a>baseline.hlma  | Higl Level Maturity Assessment  | group  |   |   |
 | <a name="baseline.tlsa"></a>baseline.tlsa  | Technical Level Security Assessment  | group  |   |   |
@@ -178,6 +178,9 @@ Email metadata
 | <a name="email.subject.raw"></a>email.subject.raw  | non-analyzed subject.  | keyword  | 1  |   |
 | <a name="email.message_id"></a>email.message_id  | ID of message.  | keyword  |   |   |
 | <a name="email.related_message_id"></a>email.related_message_id  | ID of related message.  | keyword  |   |   |
+| <a name="email.recipient_count"></a>email.recipient_count  | Number of recipients for email.  | short  |   |   |
+| <a name="email.ratelimit"></a>email.ratelimit  | Sender has hit the ratelimit.  | boolean  |   |   |
+| <a name="email.exchange"></a>email.exchange  | Information specific to exchange email logs  | group  |   |   |
 
 
 ## <a name="error"></a> Error fields
@@ -297,6 +300,8 @@ Information Security information. Used as part of authorisation.
 | Field  | Description  | Type  | Multi Field  | Example  |
 |---|---|---|---|---|
 | <a name="infosec.unit_code"></a>infosec.unit_code  | Information Security Team unit code (based on OAK LDAP unit codes).  | keyword  |   |   |
+| <a name="infosec.log_type"></a>infosec.log_type  | Type of log, used so determine index names.  | keyword  |   |   |
+| <a name="infosec.group"></a>infosec.group  | Unit or team we receive the logs from, used to determine index names and ACLs.  | keyword  |   |   |
 
 
 ## <a name="pras"></a> PRAS fields

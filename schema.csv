@@ -39,8 +39,11 @@ device.timezone.offset.sec,long,0,-5400
 device.type,keyword,0,firewall
 device.vendor,text,0,
 device.version,keyword,0,
+email.exchange,group,0,
 email.message_id,keyword,0,
+email.ratelimit,boolean,0,
 email.recipient,keyword,0,
+email.recipient_count,short,0,
 email.related_message_id,keyword,0,
 email.sender,keyword,0,
 email.subject,text,0,
@@ -95,6 +98,8 @@ http.request.method,keyword,0,"GET, POST, PUT"
 http.response.body,text,0,Hello world
 http.response.status_code,long,0,404
 http.version,keyword,0,1.1
+infosec.group,keyword,0,
+infosec.log_type,keyword,0,
 infosec.unit_code,keyword,0,
 pras.l1,keyword,0,
 pras.l2,keyword,0,
