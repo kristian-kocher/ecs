@@ -29,6 +29,7 @@ ECS defines these fields.
  * [Container fields](#container)
  * [Destination fields](#destination)
  * [Device fields](#device)
+ * [Email fields](#email)
  * [Error fields](#error)
  * [Event fields](#event)
  * [File fields](#file)
@@ -141,6 +142,24 @@ Device fields are used to provide additional information about the device that i
 | <a name="device.serial_number"></a>device.serial_number  | Device serial number.  | keyword  |   |   |
 | <a name="device.timezone.offset.sec"></a>device.timezone.offset.sec  | Timezone offset of the host in seconds.<br/>Number of seconds relative to UTC. If the offset is -01:30 the value will be -5400.  | long  |   | `-5400`  |
 | <a name="device.type"></a>device.type  | The type of the device the data is coming from.<br/>There is no predefined list of device types. Some examples are `endpoint`, `firewall`, `ids`, `ips`, `proxy`.  | keyword  |   | `firewall`  |
+
+
+## <a name="email"></a> Email fields
+
+Email metadata
+
+
+| Field  | Description  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|
+| <a name="email.sender"></a>email.sender  | Address of sender.  | keyword  |   |   |
+| <a name="email.recipient"></a>email.recipient  | Address of recipient.  | keyword  |   |   |
+| <a name="email.subject"></a>email.subject  | Subject of email.  | text  |   |   |
+| <a name="email.subject.raw"></a>email.subject.raw  | non-analyzed subject.  | keyword  | 1  |   |
+| <a name="email.message_id"></a>email.message_id  | ID of message.  | keyword  |   |   |
+| <a name="email.related_message_id"></a>email.related_message_id  | ID of related message.  | keyword  |   |   |
+| <a name="email.recipient_count"></a>email.recipient_count  | Number of recipients for email.  | short  |   |   |
+| <a name="email.ratelimit"></a>email.ratelimit  | Sender has hit the ratelimit.  | boolean  |   |   |
+| <a name="email.exchange"></a>email.exchange  | Information specific to exchange email logs  | group  |   |   |
 
 
 ## <a name="error"></a> Error fields

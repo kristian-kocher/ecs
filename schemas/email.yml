@@ -1,0 +1,113 @@
+---
+- name: email
+  title: Email
+  group: 2
+  description: >
+    Email metadata
+  type: group
+  fields:
+    - name: sender
+      type: keyword
+      description: >
+        Address of sender.
+
+    - name: recipient
+      type: keyword
+      description: >
+        Address of recipient.
+
+    - name: subject
+      type: text
+      description: >
+        Subject of email.
+
+      multi_fields:
+        - name: raw
+          type: keyword
+          description: >
+            non-analyzed subject.
+
+    - name: message_id
+      type: keyword
+      description: >
+        ID of message.
+
+    - name: related_message_id
+      type: keyword
+      description: >
+        ID of related message.
+
+    - name: recipient_count
+      type: short
+      description: >
+       Number of recipients for email.
+
+    - name: ratelimit
+      type: boolean
+      description: >
+       Sender has hit the ratelimit.
+
+    - name: exchange
+      type: group
+      description: >
+       Information specific to exchange email logs
+      fields:
+        - name: connector_id
+          type: keyword
+          description: >
+
+        - name: custom_data
+          type: keyword
+          description: >
+
+        - name: directionality
+          type: keyword
+          description: >
+
+        - name: event_id
+          type: keyword
+          description: >
+
+        - name: internal_message_id
+          type: keyword
+          description: >
+
+        - name: message_info
+          type: keyword
+          description: >
+
+        - name: original_client_ip
+          type: ip
+          description: >
+
+        - name: original_server_ip
+          type: ip
+          description: >
+
+        - name: recipient_status
+          type: keyword
+          description: >
+
+        - name: reference
+          type: keyword
+          description: >
+
+        - name: related_recipient_address
+          type: keyword
+          description: >
+
+        - name: source
+          type: keyword
+          description: >
+
+        - name: source_context
+          type: keyword
+          description: >
+
+        - name: tenant_id
+          type: keyword
+          description: >
+
+        - name: total_bytes
+          type: integer
+          description: >
