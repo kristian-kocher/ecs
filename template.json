@@ -664,6 +664,10 @@
               "ignore_above": 1024,
               "type": "keyword"
             },
+            "service": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
             "unit_code": {
               "ignore_above": 1024,
               "type": "keyword"
@@ -985,13 +989,6 @@
             },
             "told": {
               "type": "date"
-            },
-            "transaction_type": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "transaction_user": {
-              "type": "long"
             },
             "updated": {
               "type": "date"
