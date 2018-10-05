@@ -18,6 +18,12 @@
       type: keyword
       description: >
        Unit or team we receive the logs from, used to determine index names and ACLs.
+    - name: service
+      type: keyword
+      description: >
+       The Information Security Team service (e.g. Baseline Compliance)
+      example: CERT - Computer Security Incident Detection, Response and Prevention
+      phase: 0
 - name: pras
   title: PRAS
   group: 2

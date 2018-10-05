@@ -941,6 +941,12 @@
           type: keyword
           description: >
            Unit or team we receive the logs from, used to determine index names and ACLs.
+        - name: service
+          type: keyword
+          description: >
+           The Information Security Team service (e.g. Baseline Compliance)
+          example: CERT - Computer Security Incident Detection, Response and Prevention
+          phase: 0
     - name: pras
       title: PRAS
       group: 2
@@ -1468,20 +1474,6 @@
             The list of other tickets that refer to this ticket.
           type: long
           indexed: false
-        - name: transaction_type
-          type: keyword
-          description: >
-            The type of the transaction (comment, correspondance, create, etc).
-            As we have one document per ticket, this may not hold much value.
-          example: Set Owner
-          phase: 0
-          indexed: false
-        - name: transaction_user
-          type: long
-          description: >
-            The user (username or email address if unpriviledged) completing the transaction
-          example: user@example.com
-          phase: 0
     
     - name: tls
       title: TLS

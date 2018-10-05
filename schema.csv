@@ -100,6 +100,7 @@ http.response.status_code,long,0,404
 http.version,keyword,0,1.1
 infosec.group,keyword,0,
 infosec.log_type,keyword,0,
+infosec.service,keyword,0,"CERT - Computer Security Incident Detection, Response and Prevention"
 infosec.unit_code,keyword,0,
 pras.l1,keyword,0,
 pras.l2,keyword,0,
@@ -168,8 +169,6 @@ ticket.starts,date,0,
 ticket.status,keyword,0,resolved
 ticket.subject,text,0,"Huston, we have a problem"
 ticket.told,date,0,
-ticket.transaction_type,keyword,0,Set Owner
-ticket.transaction_user,long,0,user@example.com
 ticket.updated,date,0,
 tls.certificates,keyword,0,
 tls.ciphersuite,keyword,0,ECDHE-ECDSA-AES-128-CBC-SHA

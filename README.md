@@ -304,6 +304,7 @@ Information Security information. Used as part of authorisation.
 | <a name="infosec.unit_code"></a>infosec.unit_code  | Information Security Team unit code (based on OAK LDAP unit codes).  | keyword  |   |   |
 | <a name="infosec.log_type"></a>infosec.log_type  | Type of log, used so determine index names.  | keyword  |   |   |
 | <a name="infosec.group"></a>infosec.group  | Unit or team we receive the logs from, used to determine index names and ACLs.  | keyword  |   |   |
+| <a name="infosec.service"></a>infosec.service  | The Information Security Team service (e.g. Baseline Compliance)  | keyword  |   | `CERT - Computer Security Incident Detection, Response and Prevention`  |
 
 
 ## <a name="pras"></a> PRAS fields
@@ -463,8 +464,6 @@ The ticket fields contain data about tickets from ticketing systems. This curren
 | <a name="ticket.children"></a>ticket.children  | The list of other tickets that this ticket is a parent of.  | long  |   |   |
 | <a name="ticket.refers_to"></a>ticket.refers_to  | The list of other tickets that this ticket refers to.  | long  |   |   |
 | <a name="ticket.referred_to_by"></a>ticket.referred_to_by  | The list of other tickets that refer to this ticket.  | long  |   |   |
-| <a name="ticket.transaction_type"></a>ticket.transaction_type  | The type of the transaction (comment, correspondance, create, etc). As we have one document per ticket, this may not hold much value.  | keyword  |   | `Set Owner`  |
-| <a name="ticket.transaction_user"></a>ticket.transaction_user  | The user (username or email address if unpriviledged) completing the transaction  | long  |   | `user@example.com`  |
 
 
 ## <a name="tls"></a> TLS fields
