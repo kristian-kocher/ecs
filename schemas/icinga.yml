@@ -5,28 +5,39 @@
   description: >
     Icinga logs
   type: group
+  level: core
   fields:
     - name: main
       type: group
+      level: core
       description: >
         main logs
       fields:
         - name: facility
           type: keyword
+          level: core
         - name: severity
           type: keyword
+          level: core
         - name: message
           type: text
+          level: core
           multi_fields:
           - name: raw
             type: keyword
+            level: core
         - name: query_queue_items
           type: short
+          level: core
         - name: query_rate_s
           type: float
+          level: core
         - name: query_rate_min
           type: short
+          level: core
         - name: query_rate_5min
           type: short
+          level: core
         - name: query_rate_15min
           type: short
+          level: core

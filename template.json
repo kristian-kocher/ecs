@@ -262,13 +262,13 @@
             },
             "subject": {
               "fields": {
-                "raw": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
+                "text": {
+                  "norms": false,
+                  "type": "text"
                 }
               },
-              "norms": false,
-              "type": "text"
+              "ignore_above": 1024,
+              "type": "keyword"
             }
           }
         },
@@ -496,6 +496,47 @@
             "version": {
               "ignore_above": 1024,
               "type": "keyword"
+            }
+          }
+        },
+        "icinga": {
+          "properties": {
+            "main": {
+              "properties": {
+                "facility": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                },
+                "message": {
+                  "fields": {
+                    "raw": {
+                      "ignore_above": 1024,
+                      "type": "keyword"
+                    }
+                  },
+                  "norms": false,
+                  "type": "text"
+                },
+                "query_queue_items": {
+                  "type": "short"
+                },
+                "query_rate_15min": {
+                  "type": "short"
+                },
+                "query_rate_5min": {
+                  "type": "short"
+                },
+                "query_rate_min": {
+                  "type": "short"
+                },
+                "query_rate_s": {
+                  "type": "float"
+                },
+                "severity": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
             }
           }
         },

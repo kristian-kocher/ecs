@@ -48,6 +48,7 @@ ECS defines these fields.
  * [Geo fields](#geo)
  * [Host fields](#host)
  * [HTTP fields](#http)
+ * [Icinga fields](#icinga)
  * [Log fields](#log)
  * [Network fields](#network)
  * [Organization fields](#organization)
@@ -158,17 +159,17 @@ Device fields are used to provide additional information about the device that i
 Email metadata
 
 
-| Field  | Description  | Type  | Multi Field  | Example  |
-|---|---|---|---|---|
-| <a name="email.sender"></a>email.sender  | Address of sender.  | keyword  |   |   |
-| <a name="email.recipient"></a>email.recipient  | Address of recipient.  | keyword  |   |   |
-| <a name="email.subject"></a>email.subject  | Subject of email.  | text  |   |   |
-| <a name="email.subject.raw"></a>email.subject.raw  | non-analyzed subject.  | keyword  | 1  |   |
-| <a name="email.message_id"></a>email.message_id  | ID of message.  | keyword  |   |   |
-| <a name="email.related_message_id"></a>email.related_message_id  | ID of related message.  | keyword  |   |   |
-| <a name="email.recipient_count"></a>email.recipient_count  | Number of recipients for email.  | short  |   |   |
-| <a name="email.ratelimit"></a>email.ratelimit  | Sender has hit the ratelimit.  | boolean  |   |   |
-| <a name="email.exchange"></a>email.exchange  | Information specific to exchange email logs  | group  |   |   |
+| Field  | Description  | Level  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|---|
+| <a name="email.sender"></a>email.sender | Address of sender. | core | keyword |  |  |
+| <a name="email.recipient"></a>email.recipient | Address of recipient. | core | keyword |  |  |
+| <a name="email.subject"></a>email.subject | Subject of email. | core | keyword |  |  |
+| <a name="email.subject.text"></a>email.subject.text | full text Subject of email. | core | text | 1 |  |
+| <a name="email.message_id"></a>email.message_id | ID of message. | core | keyword |  |  |
+| <a name="email.related_message_id"></a>email.related_message_id | ID of related message. | core | keyword |  |  |
+| <a name="email.recipient_count"></a>email.recipient_count | Number of recipients for email. | extended | short |  |  |
+| <a name="email.ratelimit"></a>email.ratelimit | Sender has hit the ratelimit. | extended | boolean |  |  |
+| <a name="email.exchange"></a>email.exchange | Information specific to exchange email logs | extended | group |  |  |
 
 
 ## <a name="error"></a> Error fields
@@ -275,6 +276,16 @@ Fields related to HTTP requests and responses.
 | <a name="http.response.status_code"></a>http.response.status_code | Http response status code. | extended | long |  | `404` |
 | <a name="http.response.body"></a>http.response.body | The full http response body. | extended | keyword |  | `Hello world` |
 | <a name="http.version"></a>http.version | Http version. | extended | keyword |  | `1.1` |
+
+
+## <a name="icinga"></a> Icinga fields
+
+Icinga logs
+
+
+| Field  | Description  | Level  | Type  | Multi Field  | Example  |
+|---|---|---|---|---|---|
+| <a name="icinga.main"></a>icinga.main | main logs | core | group |  |  |
 
 
 ## <a name="log"></a> Log fields

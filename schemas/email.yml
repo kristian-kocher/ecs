@@ -5,6 +5,7 @@
   description: >
     Email metadata
   type: group
+  level: core
   fields:
     - name: sender
       type: keyword
@@ -27,6 +28,7 @@
       multi_fields:
         - name: text
           type: text
+          level: core
           description: >
             full text Subject of email.
 
