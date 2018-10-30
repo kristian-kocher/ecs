@@ -1,0 +1,32 @@
+---
+- name: icinga
+  title: Icinga
+  group: 2
+  description: >
+    Icinga logs
+  type: group
+  fields:
+    - name: main
+      type: group
+      description: >
+        main logs
+      fields:
+        - name: facility
+          type: keyword
+        - name: severity
+          type: keyword
+        - name: message
+          type: text
+          multi_fields:
+          - name: raw
+            type: keyword
+        - name: query_queue_items
+          type: short
+        - name: query_rate_s
+          type: float
+        - name: query_rate_min
+          type: short
+        - name: query_rate_5min
+          type: short
+        - name: query_rate_15min
+          type: short
