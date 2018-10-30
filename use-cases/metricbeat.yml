@@ -113,8 +113,8 @@ fields:
 
 - name: host
   fields:
-    - name: name
-      type: text
+    - name: hostname
+      type: keyword
       description: >
         Hostname of the system metricbeat is running on or user defined name.
 

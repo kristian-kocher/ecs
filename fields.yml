@@ -18,26 +18,34 @@
         such as Logstash or APM Server.
       type: group
       fields:
+    
         - name: version
+          level: core
           type: keyword
           description: >
             Version of the agent.
     
           example: 6.0.0-rc2
+    
         - name: name
+          level: core
           type: keyword
           description: >
             Name of the agent.
     
           example: filebeat
+    
         - name: id
+          level: core
           type: keyword
           description: >
             Unique identifier of this agent (if one exists).
     
             Example: For Beats this would be beat.id.
           example: 8a4f500d
+    
         - name: ephemeral_id
+          level: extended
           type: keyword
           description: >
             Ephemeral identifier of this agent (if one exists).
@@ -54,8 +62,8 @@
       fields:
         - name: "@timestamp"
           type: date
+          level: core
           required: true
-          phase: 3
           example: "2016-05-23T08:05:34.853Z"
           description: >
             Date/time when the event originated.
@@ -66,14 +74,16 @@
             Required field for all events.
     
         - name: tags
+          level: core
           type: keyword
           example: "[\"production\", \"env2\"]"
           description: >
             List of keywords used to tag each event.
     
         - name: labels
+          level: core
           type: object
-          example: "{key1: value1, key2: value2}"
+          example: {env: production, application: foo-bar}
           description: >
             Key/value pairs.
     
@@ -83,8 +93,8 @@
             Example: `docker` and `k8s` labels.
     
         - name: message
+          level: core
           type: text
-          phase: 1
           example: "Hello World"
           description: >
             For log events the message field contains the log message.
@@ -108,6 +118,7 @@
       type: group
       fields:
         - name: provider
+          level: extended
           example: ec2
           type: keyword
           description: >
@@ -115,35 +126,41 @@
             digitalocean.
     
         - name: availability_zone
+          level: extended
           example: us-east-1c
           type: keyword
           description: >
             Availability zone in which this host is running.
     
         - name: region
+          level: extended
           type: keyword
           example: us-east-1
           description: >
             Region in which this host is running.
     
         - name: instance.id
+          level: extended
           type: keyword
           example: i-1234567890abcdef0
           description: >
             Instance ID of the host machine.
     
         - name: instance.name
+          level: extended
           type: keyword
           description: >
             Instance name of the host machine.
     
         - name: machine.type
+          level: extended
           type: keyword
           example: t2.medium
           description: >
             Machine type of the host machine.
     
         - name: account.id
+          level: extended
           type: keyword
           example: 666777888999
           description: >
@@ -162,28 +179,40 @@
         containers from any runtime.
       type: group
       fields:
+    
         - name: runtime
+          level: extended
           type: keyword
           description: >
             Runtime managing this container.
           example: docker
+    
         - name: id
+          level: core
           type: keyword
           description: >
             Unique container id.
+    
         - name: image.name
+          level: extended
           type: keyword
           description: >
             Name of the image the container was built on.
+    
         - name: image.tag
+          level: extended
           type: keyword
           description: >
             Container image tag.
+    
         - name: name
+          level: extended
           type: keyword
           description: >
             Container name.
+    
         - name: labels
+          level: extended
           type: object
           object_type: keyword
           description: >
@@ -197,32 +226,42 @@
         packet/event.
       type: group
       fields:
+    
         - name: ip
+          level: core
           type: ip
           description: >
             IP address of the destination.
     
             Can be one or multiple IPv4 or IPv6 addresses.
+    
         - name: hostname
+          level: core
           type: keyword
           description: >
             Hostname of the destination.
+    
         - name: port
+          level: core
           type: long
           description: >
             Port of the destination.
+    
         - name: mac
+          level: core
           type: keyword
           description: >
             MAC address of the destination.
+    
         - name: domain
+          level: core
           type: keyword
-          phase: 1
           description: >
             Destination domain.
+    
         - name: subdomain
+          level: core
           type: keyword
-          phase: 1
           description: >
             Destination subdomain.
     
@@ -235,38 +274,37 @@
       type: group
       fields:
         - name: mac
+          level: core
           type: keyword
           description: >
             MAC address of the device
         - name: ip
+          level: core
           type: ip
           description: >
             IP address of the device.
         - name: hostname
+          level: core
           type: keyword
           description: >
             Hostname of the device.
         - name: vendor
-          type: text
+          level: core
+          type: keyword
           description: >
             Device vendor information.
         - name: version
+          level: core
           type: keyword
           description: >
             Device version.
         - name: serial_number
+          level: extended
           type: keyword
           description: >
             Device serial number.
-        - name: timezone.offset.sec
-          type: long
-          description: >
-            Timezone offset of the host in seconds.
-    
-            Number of seconds relative to UTC. If the offset is -01:30 the
-            value will be -5400.
-          example: -5400
         - name: type
+          level: core
           type: keyword
           description: >
             The type of the device the data is coming from.
@@ -398,16 +436,19 @@
       type: group
       fields:
         - name: id
+          level: core
           type: keyword
           description: >
             Unique identifier for the error.
     
         - name: message
+          level: core
           type: text
           description: >
             Error message.
     
         - name: code
+          level: core
           type: keyword
           description: >
             Error code describing the error.
@@ -419,13 +460,16 @@
         The event fields are used for context information about the data itself.
       type: group
       fields:
+    
         - name: id
+          level: core
           type: keyword
           description: >
             Unique ID to describe the event.
           example: 8a4f500d
-          phase: 1
+    
         - name: category
+          level: core
           type: keyword
           description: >
             Event category.
@@ -434,6 +478,7 @@
           example: metrics
     
         - name: type
+          level: core
           type: keyword
           description: >
             A type given to this kind of event which can be used for grouping.
@@ -442,6 +487,7 @@
           example: nginx-stats-metrics
     
         - name: action
+          level: core
           type: keyword
           description: >
             The action captured by the event. The type of action will vary from
@@ -453,6 +499,7 @@
           example: reject
     
         - name: module
+          level: core
           type: keyword
           description: >
             Name of the module this data is coming from.
@@ -461,6 +508,7 @@
           example: mysql
     
         - name: dataset
+          level: core
           type: keyword
           description: >
             Name of the dataset.
@@ -471,8 +519,8 @@
           example: stats
     
         - name: severity
+          level: core
           type: long
-          phase: 1
           example: "7"
           description: >
             Severity describes the severity of the event. What the different
@@ -480,8 +528,8 @@
             the implementer to make sure severities are consistent across events.
     
         - name: original
+          level: core
           type: keyword
-          phase: 1
           # Unfortunately this example is not shown correctly yet as | do not work
           # in tables well
           # Is &#124; is the representation of | it works except for cases where
@@ -499,14 +547,15 @@
           doc_values: false
     
         - name: hash
+          level: extended
           type: keyword
-          phase: 1
           example: "123456789012345678901234567890ABCD"
           description: >
               Hash (perhaps logstash fingerprint) of raw field to be able to
               demonstrate log integrity.
     
         - name: version
+          level: core
           type: keyword
           required: true
           description: >
@@ -522,11 +571,13 @@
           example: 0.1.0
     
         - name: duration
+          level: core
           type: long
           description: >
             Duration of the event in nanoseconds.
     
         - name: created
+          level: core
           type: date
           description: >
             event.created contains the date when the event was created.
@@ -543,12 +594,14 @@
             In case the two timestamps are identical, @timestamp should be used.
     
         - name: risk_score
+          level: core
           type: float
           description: >
             Risk score or priority of the event (e.g. security solutions).
             Use your system's original value here.
     
         - name: risk_score_norm
+          level: extended
           type: float
           description: >
             Normalized risk score or priority of the event, on a scale of 0 to 100.
@@ -563,27 +616,19 @@
         File fields provide details about each file.
       type: group
       fields:
+    
       - name: path
-        type: text
+        level: extended
+        type: keyword
         description: Path to the file.
-        multi_fields:
-        - name: raw
-          type: keyword
-          description: >
-            Path to the file. This is a non-analyzed field that is useful
-            for aggregations.
     
       - name: target_path
-        type: text
+        level: extended
+        type: keyword
         description: Target path for symlinks.
-        multi_fields:
-          - name: raw
-            type: keyword
-            description: >
-              Path to the file. This is a non-analyzed field that is useful
-              for aggregations.
     
       - name: extension
+        level: extended
         type: keyword
         description: >
           File extension.
@@ -592,49 +637,60 @@
         example: png
     
       - name: type
+        level: extended
         type: keyword
         description: File type (file, dir, or symlink).
     
       - name: device
+        level: extended
         type: keyword
         description: Device that is the source of the file.
     
       - name: inode
+        level: extended
         type: keyword
         description: Inode representing the file in the filesystem.
     
       - name: uid
+        level: extended
         type: keyword
         description: >
           The user ID (UID) or security identifier (SID) of the file owner.
     
       - name: owner
+        level: extended
         type: keyword
         description: File owner's username.
     
       - name: gid
+        level: extended
         type: keyword
         description: Primary group ID (GID) of the file.
     
       - name: group
+        level: extended
         type: keyword
         description: Primary group name of the file.
     
       - name: mode
+        level: extended
         type: keyword
         example: 0640
         description: Mode of the file in octal representation.
     
       - name: size
+        level: extended
         type: long
         description: File size in bytes (field is only added when `type` is
             `file`).
     
       - name: mtime
+        level: extended
         type: date
         description: Last time file content was modified.
     
       - name: ctime
+        level: extended
         type: date
         description: Last time file metadata changed.
     
@@ -646,23 +702,33 @@
         or geo information for an IP field.
       type: group
       fields:
+    
         - name: continent_name
+          level: core
           type: keyword
           description: >
             Name of the continent.
+    
         - name: country_iso_code
+          level: core
           type: keyword
           description: >
             Country ISO code.
+    
         - name: location
+          level: core
           type: geo_point
           description: >
             Longitude and latitude.
+    
         - name: region_name
+          level: core
           type: keyword
           description: >
             Region name.
+    
         - name: city_name
+          level: core
           type: keyword
           description: >
             City name.
@@ -678,29 +744,20 @@
         was generated/collected, but they can be used differently if needed.
       type: group
       fields:
-        - name: timezone.offset.sec
-          type: long
-          description: >
-            Timezone offset of the host in seconds.
     
-            Number of seconds relative to UTC. If the offset is -01:30 the
-            value will be -5400.
-          phase: 1
-          example: -5400
-    
-        - name: name
+        - name: hostname
+          level: core
           type: keyword
           description: >
-            host.name is the hostname of the host.
+            Hostname of the host.
     
             It can contain what `hostname` returns on Unix systems, the fully
             qualified domain name, or a name specified by the user. The sender
             decides which value to use.
-          phase: 1
     
         - name: id
+          level: core
           type: keyword
-          phase: 1
           description: >
             Unique host id.
     
@@ -709,16 +766,19 @@
     
             Example: The current usage of `beat.name`.
         - name: ip
+          level: core
           type: ip
           description: >
             Host ip address.
     
         - name: mac
+          level: core
           type: keyword
           description: >
             Host mac address.
     
         - name: type
+          level: core
           type: keyword
           description: >
             Type of host.
@@ -726,34 +786,38 @@
             For Cloud providers this can be the machine type like `t2.medium`.
             If vm, this could be the container, for example, or other information
             meaningful in your environment.
-          phase: 1
     
         # Operating System information
         - name: os.platform
+          level: extended
           type: keyword
           description: >
             Operating system platform (centos, ubuntu, windows, etc.)
           example: darwin
     
         - name: os.name
+          level: extended
           type: keyword
           example: "Mac OS X"
           description: >
             Operating system name.
     
         - name: os.family
+          level: extended
           type: keyword
           example: "debian"
           description: >
             OS family (redhat, debian, freebsd, windows, etc.)
     
         - name: os.version
+          level: extended
           type: keyword
           example: "10.12.6"
           description: >
             Operating system version.
     
         - name: architecture
+          level: core
           type: keyword
           example: "x86_64"
           description: >
@@ -766,61 +830,34 @@
         Fields related to HTTP requests and responses.
       type: group
       fields:
+    
         - name: request.method
+          level: extended
           type: keyword
           description: >
             Http request method.
           example: GET, POST, PUT
+    
         - name: response.status_code
+          level: extended
           type: long
           description: >
             Http response status code.
           example: 404
+    
         - name: response.body
-          type: text
+          level: extended
+          type: keyword
           description: >
             The full http response body.
           example: Hello world
+    
         - name: version
+          level: extended
           type: keyword
           description: >
             Http version.
           example: 1.1
-    
-    - name: kubernetes
-      title: Kubernetes
-      group: 2
-      description: >
-        Kubernetes fields are used for Kubernetes meta information. This
-        information helps correlate data from Kubernetes setups.
-    
-      type: group
-      fields:
-        - name: pod.name
-          type: keyword
-          description: >
-            Kubernetes pod name
-    
-        - name: namespace
-          type: keyword
-          description: >
-            Kubernetes namespace
-    
-        - name: labels
-          type: object
-          description: >
-            Kubernetes labels map
-    
-        - name: annotations
-          type: object
-          description: >
-            Kubernetes annotations map
-    
-        - name: container.name
-          type: keyword
-          description: >
-            Kubernetes container name. This name is unique within the pod only.
-            It is different from the underlying `container.name` field.
     
     - name: log
       title: Log
@@ -828,26 +865,19 @@
         Fields which are specific to log events.
       type: group
       fields:
+    
         - name: level
+          level: core
           type: keyword
           description: >
             Log level of the log event.
     
             Some examples are `WARN`, `ERR`, `INFO`.
           example: ERR
-        - name: line
-          type: long
-          description: >
-            Line number the log event was collected from.
-          example: 18
-        - name: offset
-          type: long
-          description: >
-            Offset of the beginning of the log event.
-          example: 12
+    
         - name: original
+          level: core
           type: keyword
-          phase: 1
           example: "Sep 19 08:26:10 localhost My log"
           index: false
           doc_values: false
@@ -871,23 +901,23 @@
         Fields related to network data.
       type: group
       fields:
+    
         - name: name
-          type: text
+          level: extended
+          type: keyword
           description: >
             Name given by operators to sections of their network.
           example: Guest Wifi
-          multi_fields:
-            - name: raw
-              type: keyword
-              description: >
-                Name given by operators to sections of their network.
     
         - name: protocol
+          level: core
           type: keyword
           description: >
             Network protocol name.
           example: http
+    
         - name: direction
+          level: core
           type: keyword
           description: >
             Direction of the network traffic.
@@ -899,6 +929,7 @@
           example: inbound
     
         - name: forwarded_ip
+          level: core
           type: ip
           description: >
             Host IP address when the source IP address is the proxy.
@@ -906,31 +937,42 @@
     
         # Metrics
         - name: inbound.bytes
+          level: core
           type: long
           description: >
             Network inbound bytes.
           example: 184
+    
         - name: inbound.packets
+          level: core
           type: long
           description: >
             Network inbound packets.
           example: 12
+    
         - name: outbound.bytes
+          level: core
           type: long
           description: >
             Network outbound bytes.
           example: 184
+    
         - name: outbound.packets
+          level: core
           type: long
           description: >
             Network outbound packets.
           example: 12
+    
         - name: total.bytes
+          level: core
           type: long
           description: >
             Network total bytes. The sum of inbound.bytes + outbound.bytes.
           example: 368
+    
         - name: total.packets
+          level: core
           type: long
           description: >
             Network outbound packets. The sum of inbound.packets + outbound.packets
@@ -945,12 +987,15 @@
         organizations.
       type: group
       fields:
+    
         - name: name
-          type: text
+          level: extended
+          type: keyword
           description: >
             Organization name.
     
         - name: id
+          level: extended
           type: keyword
           description: >
             Unique identifier for the organization.
@@ -962,27 +1007,37 @@
         These fields are often used inside other prefixes, such as `host.os.*` or `user_agent.os.*`.
       type: group
       fields:
+    
         - name: platform
+          level: extended
           type: keyword
           description: >
             Operating system platform (such centos, ubuntu, windows).
           example: darwin
+    
         - name: name
+          level: extended
           type: keyword
           example: "Mac OS X"
           description: >
             Operating system name.
+    
         - name: family
+          level: extended
           type: keyword
           example: "debian"
           description: >
             OS family (such as redhat, debian, freebsd, windows).
+    
         - name: version
+          level: extended
           type: keyword
           example: "10.12.6-rc2"
           description: >
             Operating system version as a raw string.
+    
         - name: kernel
+          level: extended
           type: keyword
           example: "4.4.0-112-generic"
           description: >
@@ -996,39 +1051,48 @@
         These fields can help you correlate metrics information with a process id/name
         from a log message.  The `process.pid` often stays in the metric itself and is
         copied to the global field for correlation.
-    
       type: group
       fields:
+    
         - name: args
+          level: extended
           type: keyword
           description: >
             Process arguments.
     
             May be filtered to protect sensitive information.
           example: ["-l", "user", "10.0.0.16"]
+    
         - name: name
+          level: extended
           type: keyword
           description: >
             Process name.
     
             Sometimes called program name or similar.
           example: ssh
+    
         - name: pid
+          level: core
           type: long
           description: >
             Process id.
           exmple: ssh
+    
         - name: ppid
+          level: extended
           type: long
           description: >
             Process parent id.
     
         - name: title
+          level: extended
           type: keyword
           description: >
             Process title.
     
-            The proctitle, often the same as process name.
+            The proctitle, some times the same as process name. Can also be different:
+            for example a browser setting its title to the web page currently opened.
     
     - name: service
       title: Service
@@ -1037,10 +1101,11 @@
         The service fields describe the service for or from which the data was
         collected. These fields help you find and correlate logs for a specific
         service and version.
-    
       type: group
       fields:
+    
         - name: id
+          level: core
           type: keyword
           description: >
             Unique identifier of the running service.
@@ -1052,42 +1117,56 @@
             can filter on that id to see metrics and logs for that single instance.
     
           example: d37e5ebfe0ae6c4972dbe9f0174a1637bb8247f6
-          phase: 1
     
         - name: name
+          level: core
           type: keyword
-          phase: 1
-          example: "elasticsearch"
+          example: "elasticsearch-metrics"
           description: >
             Name of the service data is collected from.
     
-            The name can be used to group and correlate logs and metrics from one
-            service.
+            The name of the service is normally user given. This allows if two
+            instances of the same service are running on the same machine
+            they can be differentiated by the `service.name`.
     
-            Example: If logs or metrics are collected from Redis, `service.name` would be
-            `redis`.
+            Also it allows for distributed services that run on multiple hosts to
+            correlate the related instances based on the name.
+    
+            In the case of Elasticsearch the service.name could contain the cluster
+            name. For Beats the service.name is by default a copy of the `service.type`
+            field if no name is specified.
     
         - name: type
+          level: core
           type: keyword
-          phase: 1
+          example: "elasticsearch"
           description: >
-            Service type.
+            The type of the service data is collected from.
+    
+            The type can be used to group and correlate logs and metrics from one
+            service type.
+    
+            Example: If logs or metrics are collected from Elasticsearch, `service.type` would be
+            `elasticsearch`.
     
         - name: state
+          level: core
           type: keyword
-          phase: 1
           description: >
             Current state of the service.
+    
         - name: version
+          level: core
           type: keyword
-          phase: 1
           example: "3.2.4"
           description: >
             Version of the service the data was collected from.
     
             This allows to look at a data set only for a specific version of a
             service.
+    
         - name: ephemeral_id
+          level: extended
           type: keyword
           description: >
             Ephemeral identifier of this service (if one exists).
@@ -1102,74 +1181,44 @@
         Source fields describe details about the source of the event.
       type: group
       fields:
+    
         - name: ip
+          level: core
           type: ip
           description: >
             IP address of the source.
     
             Can be one or multiple IPv4 or IPv6 addresses.
+    
         - name: hostname
+          level: core
           type: keyword
           description: >
             Hostname of the source.
+    
         - name: port
+          level: core
           type: long
-          phase: 1
           description: >
             Port of the source.
+    
         - name: mac
+          level: core
           type: keyword
-          phase: 1
           description: >
             MAC address of the source.
+    
         - name: domain
+          level: core
           type: keyword
-          phase: 1
           description: >
             Source domain.
+    
         - name: subdomain
+          level: core
           type: keyword
-          phase: 1
           description: >
             Source subdomain.
-    
-    - name: tls
-      title: TLS
-      group: 2
-      description: >
-        The tls fields contain the TLS related data about a specific connection.
-    
-      footnote: >
-        As an example in the case of Filebeat and the TCP input, the `version` field would be the
-        version of the TLS protocol in use, the `certificates` would be the chain of certificates
-        provided by the client and the `ciphersuite` is the encryption algorithm used for the
-        communication.
-      type: group
-      fields:
-        - name: version
-          type: keyword
-          description: >
-            TLS version.
-    
-          example: TLSv1.2
-        - name: certificates
-          type: keyword
-          description: >
-            An array of certificates.
-          ignore_above: -1
-          doc_values: false
-        - name: servername
-          type: keyword
-          description: >
-            Server name requested by the client.
-    
-          example: localhost
-        - name: ciphersuite
-          type: keyword
-          description: >
-            Name of the cipher used for the communication.
-    
-          example: ECDHE-ECDSA-AES-128-CBC-SHA
     
     - name: url
       title: URL
@@ -1177,63 +1226,51 @@
         URL fields provide a complete URL, with scheme, host, and path. The URL
         object can be reused in other prefixes, such as `host.url.*` for
         example. Keep the structure consistent whenever you use URL fields.
-    
       type: group
       fields:
+    
         - name: href
-          type: text
+          level: extended
+          type: keyword
           description: >
             Full url. The field is stored as keyword.
-    
-            `url.href` is a [multi field](https://www.elastic.co/guide/en/
-            elasticsearch/reference/6.2/
-            multi-fields.html#_multi_fields_with_multiple_analyzers). The data is
-            stored as keyword `url.href` and test
-            `url.href.analyzed`. These fields enable you to run a query against part
-            of the url still works splitting up the URL at ingest time.
-    
-            `href` is an analyzed field so the parsed information can be accessed
-            through `href.analyzed` in queries.
-    
-          multi_fields:
-            - name: raw
-              type: keyword
-              description: >
-                The full URL. This is a non-analyzed field that is useful
-                for aggregations.
           example: https://elastic.co:443/search?q=elasticsearch#top
+    
         - name: scheme
+          level: extended
           type: keyword
           description: >
             Scheme of the request, such as "https".
     
             Note: The `:` is not part of the scheme.
           example: https
-        - name: host.name
+    
+        - name: hostname
+          level: extended
           type: keyword
           description: >
-            Hostname of the request, such as "example.com".
+            Hostname of the request, such as "elastic.co".
     
-            For correlation the this field can be copied into the `host.name`
-            field.
+            In some cases a URL may refer to an IP and/or port directly, without a
+            domain name. In this case, the IP address would go to the `hostname` field.
           example: elastic.co
+    
         - name: port
+          level: extended
           type: integer
           description: >
             Port of the request, such as 443.
           example: 443
+    
         - name: path
-          type: text
+          level: extended
+          type: keyword
           description: >
             Path of the request, such as "/search".
-          multi_fields:
-            - name: raw
-              type: keyword
-              description: >
-                URL path. A non-analyzed field that is useful
-                for aggregations.
+    
         - name: query
-          type: text
+          level: extended
+          type: keyword
           description: >
             The query field describes the query string of the request,
             such as "q=elasticsearch".
@@ -1242,23 +1279,23 @@
             no `?`, there is no query field. If there is a `?` but no query,
             the query field exists with an empty string. The `exists`
             query can be used to differentiate between the two cases.
-          multi_fields:
-            - name: raw
-              type: keyword
-              description: >
-                URL query part. A non-analyzed field that is useful
-                for aggregations.
+    
         - name: fragment
+          level: extended
           type: keyword
           description: >
             Portion of the url after the `#`, such as "top".
     
             The `#` is not part of the fragment.
+    
         - name: username
+          level: extended
           type: keyword
           description: >
             Username of the request.
+    
         - name: password
+          level: extended
           type: keyword
           description: >
             Password of the request.
@@ -1273,24 +1310,30 @@
         them.
       type: group
       fields:
+    
         - name: id
+          level: core
           type: keyword
           description: >
             One or multiple unique identifiers of the user.
+    
         - name: name
+          level: core
           type: keyword
           description: >
             Name of the user.
     
             The field is a keyword, and will not be tokenized.
+    
         - name: email
+          level: extended
           type: keyword
-          phase: 1
           description: >
             User email address.
+    
         - name: hash
+          level: extended
           type: keyword
-          phase: 1
           description: >
             Unique user hash to correlate information for a user in anonymized form.
     
@@ -1305,48 +1348,70 @@
         show up in web service logs coming from the parsed user agent string.
       type: group
       fields:
+    
         - name: original
-          type: text
+          level: extended
+          type: keyword
           description: >
             Unparsed version of the user_agent.
+    
         - name: device
+          level: extended
           type: keyword
           description: >
             Name of the physical device.
+    
         - name: version
+          level: extended
           type: keyword
           description: >
             Version of the physical device.
+    
         - name: major
+          level: extended
           type: long
           description: >
             Major version of the user agent.
+    
         - name: minor
+          level: extended
           type: long
           description: >
             Minor version of the user agent.
+    
         - name: patch
+          level: extended
           type: keyword
           description: >
             Patch version of the user agent.
+    
         - name: name
+          level: extended
           type: keyword
           example: Chrome
           description: >
             Name of the user agent.
+    
         - name: os.name
+          level: extended
           type: keyword
           description: >
             Name of the operating system.
+    
         - name: os.version
+          level: extended
           type: keyword
           description: >
             Version of the operating system.
+    
         - name: os.major
+          level: extended
           type: long
           description: >
             Major version of the operating system.
+    
         - name: os.minor
+          level: extended
           type: long
           description: >
             Minor version of the operating system.
