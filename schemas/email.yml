@@ -5,109 +5,134 @@
   description: >
     Email metadata
   type: group
+  level: core
   fields:
     - name: sender
       type: keyword
+      level: core
       description: >
         Address of sender.
 
     - name: recipient
       type: keyword
+      level: core
       description: >
         Address of recipient.
 
     - name: subject
-      type: text
+      type: keyword
+      level: core
       description: >
         Subject of email.
 
       multi_fields:
-        - name: raw
-          type: keyword
+        - name: text
+          type: text
+          level: core
           description: >
-            non-analyzed subject.
+            Full text Subject of email.
 
     - name: message_id
       type: keyword
+      level: core
       description: >
         ID of message.
 
     - name: related_message_id
       type: keyword
+      level: core
       description: >
         ID of related message.
 
     - name: recipient_count
       type: short
+      level: extended
       description: >
        Number of recipients for email.
 
     - name: ratelimit
       type: boolean
+      level: extended
       description: >
        Sender has hit the ratelimit.
 
     - name: exchange
       type: group
+      level: extended
       description: >
        Information specific to exchange email logs
       fields:
         - name: connector_id
           type: keyword
+          level: extended
           description: >
 
         - name: custom_data
           type: keyword
+          level: extended
           description: >
 
         - name: directionality
           type: keyword
+          level: extended
           description: >
 
         - name: event_id
           type: keyword
+          level: extended
           description: >
 
         - name: internal_message_id
           type: keyword
+          level: extended
           description: >
 
         - name: message_info
           type: keyword
+          level: extended
           description: >
 
         - name: original_client_ip
           type: ip
+          level: extended
           description: >
 
         - name: original_server_ip
           type: ip
+          level: extended
           description: >
 
         - name: recipient_status
           type: keyword
+          level: extended
           description: >
 
         - name: reference
           type: keyword
+          level: extended
           description: >
 
         - name: related_recipient_address
           type: keyword
+          level: extended
           description: >
 
         - name: source
           type: keyword
+          level: extended
           description: >
 
         - name: source_context
           type: keyword
+          level: extended
           description: >
 
         - name: tenant_id
           type: keyword
+          level: extended
           description: >
 
         - name: total_bytes
           type: integer
+          level: extended
           description: >

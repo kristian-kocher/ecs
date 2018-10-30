@@ -8,21 +8,25 @@
     (https://www.bestpractical.com/rt/), but future versions will try to
     be more agnostic.
   type: group
+  level: extended
   fields:
     - name: id
       type: integer
+      level: extended
       description: >
         The unique identifier for this ticket
       example: 12345
       phase: 0
     - name: subject
       type: text
+      level: extended
       description: >
         The subject or a short summary for this ticket
       example: Huston, we have a problem
       phase: 0
     - name: status
       type: keyword
+      level: extended
       description: >
         The status of this ticket. It is expected that the set of
         statuses are a known (short) list.
@@ -30,12 +34,14 @@
       phase: 0
     - name: priority
       type: integer
+      level: extended
       description: >
         The importance of this ticket as an integer
       example: 3
       phase: 0
     - name: queue
       type: keyword
+      level: extended
       description: >
         The queue or service of this ticket. It is expected that the
         queues or services are from a defined list.
@@ -43,6 +49,7 @@
       phase: 0
     - name: owner
       type: keyword
+      level: extended
       description: >
         The responsible person for this ticket. This should uniquely
         identify each possible owner, and it is generally expected that
@@ -51,6 +58,7 @@
       phase: 0
     - name: requestors
       type: keyword
+      level: extended
       description: >
         The person or person(s) originating or partaking in the request.
         This is generally expected that this will be a username or
@@ -59,6 +67,7 @@
       phase: 0
     - name: ccs
       type: keyword
+      level: extended
       description: >
         Other people interested in the correspondance that appears on
         this ticket. This could be an interested party or someone who
@@ -69,6 +78,7 @@
       phase: 0
     - name: adminccs
       type: keyword
+      level: extended
       description: >
         People other than the owner interested in the full history (including
         internal comments that happens on this ticket. This could be an an
@@ -79,12 +89,14 @@
       phase: 0
     - name: created
       type: date
+      level: extended
       description: >
         The date and time the ticket was created. Set by the system
         automatically.
       phase: 0
     - name: starts
       type: date
+      level: extended
       description: >
         When the ticket should be started. A user set date and time
         which may have local meaning.
@@ -92,6 +104,7 @@
       phase: 0
     - name: started
       type: date
+      level: extended
       description: >
         The date and time the ticket was started (i.e. when first taken).
         Set by the system automatically.
@@ -99,6 +112,7 @@
       phase: 0
     - name: told
       type: date
+      level: extended
       description: >
         The date and time the ticket was started (i.e. when first taken).
         Set by the system automatically.
@@ -106,6 +120,7 @@
       phase: 0
     - name: due
       type: date
+      level: extended
       description: >
         The date and time the ticket should be finished by. This is
         either user set or determined by the queue default.
@@ -113,12 +128,14 @@
       phase: 0
     - name: closed
       type: date
+      level: extended
       description: >
         The date and time the ticket was resolved.
         Set by the system automatically.
       phase: 0
     - name: updated
       type: date
+      level: extended
       description: >
         The date and time the ticket was last changed in some way
         (correspondance, comments, status change, etc).
@@ -127,30 +144,35 @@
       phase: 0
     - name: depends_on
       type: long
+      level: extended
       indexed: false
       description: >
         The list of other tickets that this ticket depends on.
       phase: 0
     - name: depended_on_by
       type: long
+      level: extended
       indexed: false
       description: >
         The list of other tickets that this ticket is a dependancy of.
       phase: 0
     - name: parents
       type: long
+      level: extended
       indexed: false
       description: >
         The list of other tickets that this ticket is a child of.
       phase: 0
     - name: children
       type: long
+      level: extended
       indexed: false
       description: >
         The list of other tickets that this ticket is a parent of.
       phase: 0
     - name: refers_to
       type: long
+      level: extended
       indexed: false
       description: >
         The list of other tickets that this ticket refers to.
@@ -159,4 +181,5 @@
       description: >
         The list of other tickets that refer to this ticket.
       type: long
+      level: extended
       indexed: false

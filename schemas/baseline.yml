@@ -8,128 +8,159 @@
   footnote: >
     Examples:
   type: group
+  level: extended
   fields:
     - name: contact
       type: group
+      level: extended
       description: >
        Contact responsible for the submission
       fields:
         - name: name
           type: keyword
+          level: extended
           description: >
            Name of unit contact
         - name: email
           type: keyword
+          level: extended
           description: >
            Email address of unit contact
         - name: telephone
           type: keyword
+          level: extended
           description: >
            Telephone number of unit contact
         - name: jobtitle
           type: text
+          level: extended
           description: >
            Jobtitle of unit contact
     - name: revision
       type: short
+      level: extended
       description: >
        Revision of the baseline control set.
     - name: scope
       type: group
+      level: extended
       description: >
        Scope of assessment
       fields:
         - name: included
           type: text
+          level: extended
           description: >
            Description of in-scope systems for the baseline assessment.
         - name: excluded
           type: text
+          level: extended
           description: >
            Description of out-of-scope systems for the baseline assessment.
     - name: hlma
       type: group
+      level: extended
       description: >
        Higl Level Maturity Assessment
       fields:
         - name: id
           type: keyword
+          level: extended
           description: >
             Identifier of the high level maturity control (e.g. ABC.01).
         - name: title
           type: keyword
+          level: extended
           description: >
             TODO
         - name: description
           type: text
+          level: extended
           description: >
             Description of the high level maturity control starting with the id.
         - name: category
           type: keyword
+          level: extended
           description: >
             Category of the high level maturity control.
         - name: score
           type: short
+          level: extended
           description: >
            Respondent's maturity score for the high level maturity control.
         - name: comments
           type: text
+          level: extended
           description: >
             Respondent's comments for the high level maturity control.
     - name: tlsa
       type: group
+      level: extended
       description: >
        Technical Level Security Assessment
       fields:
         - name: id
           type: keyword
+          level: extended
           description: >
            Identifier of the technical level security control (e.g. ABC.01).
         - name: title
           type: keyword
+          level: extended
           description: >
            TODO
         - name: description
           type: text
+          level: extended
           description: >
            Description of technical level security control starting with the id.
         - name: testing
           type: text
+          level: extended
           description: >
            Examples on how to test the implementation of the technical level security control.
         - name: category
           type: keyword
+          level: extended
           description: >
            Category of the technical level security control.
         - name: priority
           type: short
+          level: extended
           description: >
            Priority of the technical level security control with integer values ranging from 1 (highest) to 5 (lowest).
         - name: implemented
           type: keyword
+          level: extended
           description: >
            Respondent's assessment on the implementation of the technical level security control. Valid values are: 'Yes', 'No', 'N.a.', and 'Alternative Controls'.
         - name: comments
           type: text
+          level: extended
           description: >
            Respondent's comments for the technical level security control.
         - name: constraints
           type: text
+          level: extended
           description: >
            Respondent's description of constraints requiring an alternative control for the technical level security control.
         - name: mitigation
           type: text
+          level: extended
           description: >
            Respondent's description of the implemented mitigation using the alternative control for the technical level security control.
         - name: status
           type: keyword
+          level: extended
           description: >
            Information Security Team's decision on the implementation of a control. This field is automatically generated based on baseline.tlsa.implemented: 'Yes' -> 'Implemented', 'No' -> 'Not implemented', 'N.a.' -> 'Not implemented', 'Alternative Control' -> None (to indicate need for review).
         - name: review_response
           type: text
+          level: extended
           description: >
            Information Security Team's response to an alternative control implementation.
         - name: review_reason
           type: text
+          level: extended
           description: >
            Information Security Team's reasoning to an alternative control implementation.

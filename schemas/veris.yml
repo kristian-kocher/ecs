@@ -6,10 +6,12 @@
     The VERIS group documents the vocabulary for event recording and
     incident sharing (VERIS) framework <http://veriscommunity.net/>.
   type: group
+  level: extended
   fields:
     - name: incident_confirmation
       title: Incident Confirmation
       type: keyword
+      level: extended
       description: >
         Describes if this item is in fact an incident, and the status of
         that incident.
@@ -20,6 +22,7 @@
     - name: threat_actor
       title: Threat Actor
       type: keyword
+      level: extended
       description: >
         Describes the threat actor - the party who is responsible for
         this incident.
@@ -30,6 +33,7 @@
     - name: threat_action
       title: Threat Action
       type: keyword
+      level: extended
       description: >
         Describes the threat action - what were the action affecting the
         asset.
@@ -40,6 +44,7 @@
     - name: compromised_assets
       title: Compromised Assets
       type: keyword
+      level: extended
       description: >
         Describes the compromised assets - the things affected by the
         incident.
@@ -50,6 +55,7 @@
     - name: security_attributes
       title: Security Attributes
       type: keyword
+      level: extended
       description: >
         Describes the security attributes - how the asset was affected.
         This is expected to be at least one of 'Confidentiality -
@@ -60,6 +66,7 @@
     - name: discovery_method
       title: Discovery Method
       type: keyword
+      level: extended
       description: >
         Describes how the incident was discoverd.
         This is expected to be at least one of a small number of values

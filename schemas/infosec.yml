@@ -5,41 +5,58 @@
   description: >
     Information Security information. Used as part of authorisation.
   type: group
+  level: extended
   fields:
+
     - name: unit_code
       type: keyword
+      level: extended
       description: >
        Information Security Team unit code (based on OAK LDAP unit codes).
+
     - name: log_type
       type: keyword
+      level: extended
       description: >
        Type of log, used so determine index names.
+
     - name: group
       type: keyword
+      level: extended
       description: >
        Unit or team we receive the logs from, used to determine index names and ACLs.
+
     - name: service
       type: keyword
+      level: extended
       description: >
        The Information Security Team service (e.g. Baseline Compliance)
       example: CERT - Computer Security Incident Detection, Response and Prevention
       phase: 0
+
 - name: pras
   title: PRAS
   group: 2
   description: >
    PRAS
   type: group
+  level: extended
   fields:
+
     - name: l1
       type: keyword
+      level: extended
       description: >
        PRAS Level 1 - the division.
+
     - name: l2
       type: keyword
+      level: extended
       description: >
        PRAS Level 2 - the department.
+
     - name: l3
       type: keyword
+      level: extended
       description: >
        PRAS Level 3 - the sub-department (sometimes use for service).

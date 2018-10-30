@@ -5,63 +5,51 @@
     URL fields provide a complete URL, with scheme, host, and path. The URL
     object can be reused in other prefixes, such as `host.url.*` for
     example. Keep the structure consistent whenever you use URL fields.
-
   type: group
   fields:
+
     - name: href
-      type: text
+      level: extended
+      type: keyword
       description: >
         Full url. The field is stored as keyword.
-
-        `url.href` is a [multi field](https://www.elastic.co/guide/en/
-        elasticsearch/reference/6.2/
-        multi-fields.html#_multi_fields_with_multiple_analyzers). The data is
-        stored as keyword `url.href` and test
-        `url.href.analyzed`. These fields enable you to run a query against part
-        of the url still works splitting up the URL at ingest time.
-
-        `href` is an analyzed field so the parsed information can be accessed
-        through `href.analyzed` in queries.
-
-      multi_fields:
-        - name: raw
-          type: keyword
-          description: >
-            The full URL. This is a non-analyzed field that is useful
-            for aggregations.
       example: https://elastic.co:443/search?q=elasticsearch#top
+
     - name: scheme
+      level: extended
       type: keyword
       description: >
         Scheme of the request, such as "https".
 
         Note: The `:` is not part of the scheme.
       example: https
-    - name: host.name
+
+    - name: hostname
+      level: extended
       type: keyword
       description: >
-        Hostname of the request, such as "example.com".
+        Hostname of the request, such as "elastic.co".
 
-        For correlation the this field can be copied into the `host.name`
-        field.
+        In some cases a URL may refer to an IP and/or port directly, without a
+        domain name. In this case, the IP address would go to the `hostname` field.
       example: elastic.co
+
     - name: port
+      level: extended
       type: integer
       description: >
         Port of the request, such as 443.
       example: 443
+
     - name: path
-      type: text
+      level: extended
+      type: keyword
       description: >
         Path of the request, such as "/search".
-      multi_fields:
-        - name: raw
-          type: keyword
-          description: >
-            URL path. A non-analyzed field that is useful
-            for aggregations.
+
     - name: query
-      type: text
+      level: extended
+      type: keyword
       description: >
         The query field describes the query string of the request,
         such as "q=elasticsearch".
@@ -70,23 +58,23 @@
         no `?`, there is no query field. If there is a `?` but no query,
         the query field exists with an empty string. The `exists`
         query can be used to differentiate between the two cases.
-      multi_fields:
-        - name: raw
-          type: keyword
-          description: >
-            URL query part. A non-analyzed field that is useful
-            for aggregations.
+
     - name: fragment
+      level: extended
       type: keyword
       description: >
         Portion of the url after the `#`, such as "top".
 
         The `#` is not part of the fragment.
+
     - name: username
+      level: extended
       type: keyword
       description: >
         Username of the request.
+
     - name: password
+      level: extended
       type: keyword
       description: >
         Password of the request.
